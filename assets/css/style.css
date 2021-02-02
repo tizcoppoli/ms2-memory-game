@@ -17,13 +17,14 @@
    font-size: large;
 } */
 
-.btn-game {
+.btn-game,
+.btn-selector {
   padding: 0px;
   margin: 5px;
   border-radius: 50%;
 }
 
-.btn-game img {
+.btn-game img, .btn-selector img {
   border-radius: 50%;
 }
 
