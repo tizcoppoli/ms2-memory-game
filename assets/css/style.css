@@ -13,9 +13,9 @@
   padding-bottom: 100px;
 }
 
-#game-span {
-  /*  font-size: large; */
-}
+/* #game-span {
+   font-size: large;
+} */
 
 .btn-game {
   padding: 0px;
@@ -27,12 +27,16 @@
   border-radius: 50%;
 }
 
+#restart-button {
+  margin: 5px;
+}
+
 /* HUD */
 
-.hud-high,
+/* .hud-high,
 .hud-low {
-  /* background-color: brown; */
-}
+  background-color: brown;
+} */
 
 /* FOOTER */
 

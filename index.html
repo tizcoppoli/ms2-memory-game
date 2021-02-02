@@ -30,7 +30,7 @@
     </header>
 
     <!-- HUD-HIGH -->
-   <!--  <div class="container-fluid hud-high">
+    <!--  <div class="container-fluid hud-high">
         <div class="row">
             <div class="col-12 text-center">
                 <p class="d-inline-block">Score: 000</p>
@@ -42,10 +42,14 @@
     <!-- GAME-AREA -->
     <div class="container-fluid game-area">
         <div class="row">
-            <div class="col-12 text-center">
-                
-                <p class="game-text">Watch! You have <h2> <span id="game-span">5</span> </h2> seconds!</p>
+            <div class="col-12 text-center" id="intro-text">
+                <p class="game-text">Watch! You have
+                <h2> <span id="game-span">5</span> </h2> seconds!</p>
                 <!-- <p>Game Area</p> -->
+            </div>
+            <div class="col-12 text-center d-none" id="game-text">
+                <p>Click to choose a color!</p>
+                <p>Once you have done click <strong>Check Results</strong>.</p>
             </div>
             <div class="col-12 text-center">
                 <button class="btn-game" id="gm-1" data-bs-toggle="modal" data-bs-target="#gameModal">
@@ -124,7 +128,12 @@
         <div class="row">
             <div class="col-12 text-center">
                 <button id="start-button" type="button" class="btn btn-primary">Start</button>
-                <button id="check-button" type="button" class="btn btn-primary">Check</button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="check-button" type="button" class="btn btn-primary d-none">Check Result</button>
+            </div>
+            <div class="col-12 text-center">
+                <button id="restart-button" type="button" class="btn btn-primary d-none">Restart</button>
             </div>
         </div>
     </div>

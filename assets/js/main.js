@@ -29,6 +29,13 @@ function initializeButtons() {
 
   let time = $("#game-span")[0].innerHTML;
 
+  $("#start-button").addClass("d-none");
+  $("#restart-button").addClass("d-none");
+  $("#check-button").addClass("d-none");
+
+  $("#game-text").addClass("d-none");
+      $("#intro-text").removeClass("d-none");
+
   let timer = setInterval(function () {
     time--;
     $("#game-span")[0].innerHTML = time;
@@ -44,6 +51,12 @@ function initializeButtons() {
   `;
         console.log("success");
       }
+      $("#restart-button").removeClass("d-none");
+      $("#check-button").removeClass("d-none");
+      $("#game-text").removeClass("d-none");
+      $("#intro-text").addClass("d-none");
+
+
 
       $("#game-span")[0].innerHTML = "";
       clearInterval(timer);
@@ -77,6 +90,7 @@ function checkSequence() {
 /* EVENT HANDLERS */
 
 $("#start-button").click(initializeButtons);
+$("#restart-button").click(initializeButtons);
 $("#check-button").click(checkSequence);
 
 $(".btn-game").click(function () {
