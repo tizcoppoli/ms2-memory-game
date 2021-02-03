@@ -24,11 +24,18 @@
 .btn-game,
 .btn-selector {
   padding: 0px;
-  margin: 5px;
+  margin: 5px; 
   border-radius: 50%;
 }
 
-.btn-game img, .btn-selector img {
+#game-box > img {
+  border-radius: 50%;
+  margin: 5px;
+  border: solid 2px;
+}
+
+.btn-game img,
+.btn-selector img {
   border-radius: 50%;
 }
 

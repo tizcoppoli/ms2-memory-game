@@ -8,6 +8,12 @@ let maximumLevel = 5;
 function startGame() {
   let arrayOfPossibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let gameButtons = $(".btn-game.btn-level-active");
+
+/* for (button of gameButtons) {
+  button.disabled = true;
+  console.log(button.disabled);
+} */
+
   let sequence = generatingSequence(level, arrayOfPossibilities);
 
   $("#information-box")[0].innerHTML = `
@@ -15,10 +21,17 @@ function startGame() {
     `;
 
   for (let i = 0; i < gameButtons.length; i++) {
-    gameButtons[i].innerHTML = `
+    /* gameButtons[i].innerHTML = `
     <img src="assets/images/figure-${sequence[i]}.png">
-    `;
+    `; */
     console.log(sequence[i]);
+
+    $("#game-box").append(`
+    <img src="assets/images/figure-${sequence[i]}.png">
+    `);
+
+    $(".btn-game").addClass("d-none");
+
   }
 
   $("#button-box").children().remove();
@@ -58,6 +71,9 @@ function setTimer() {
 
 function coverImages(timer) {
   let gameButtons = $(".btn-game");
+
+  $(".btn-game").removeClass("d-none");
+  $("#game-box img").remove();
 
   for (let button of gameButtons) {
     button.innerHTML = `
@@ -109,7 +125,7 @@ function initializeLevel() {
   if (level < maximumLevel) {
     level++;
     $("#game-box").append(`
-<button class="btn-game btn-level-active" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
+<button class="btn-game btn-level-active d-none" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
 </button>
 `);
   }
