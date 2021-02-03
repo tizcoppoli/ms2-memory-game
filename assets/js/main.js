@@ -2,7 +2,8 @@ console.log("Hello, World!");
 
 let gameSeq = [];
 let newSequence = [];
-let level = 1;
+let level = 0;
+let maximumLevel = 5;
 
 function startGame() {
   let arrayOfPossibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
@@ -20,7 +21,7 @@ function startGame() {
     console.log(sequence[i]);
   }
 
- $("#button-box").children().remove();
+  $("#button-box").children().remove();
 
   setTimer();
 }
@@ -46,7 +47,6 @@ function setTimer() {
     <p>You have <h2>${timeLeft}</h2> seconds!</p>
     `;
 
-    
     console.log(timeLeft);
 
     if (timeLeft <= 0) {
@@ -94,10 +94,6 @@ function checkSequence() {
     $("#button-box")[0].innerHTML = `
     <button id="continue-button" type="button" class="btn btn-primary">Continue</button>
   `;
-
-    if (level < 10) {
-      level++;
-    }
   } else {
     $("#information-box")[0].innerHTML = `<h2>Wrong!</h2>`;
 
@@ -110,16 +106,21 @@ function checkSequence() {
 /* LEVELS */
 
 function initializeLevel() {
-  $("#game-box").append(`
+  if (level < maximumLevel) {
+    level++;
+    $("#game-box").append(`
 <button class="btn-game btn-level-active" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
 </button>
 `);
+  }
 
   startGame();
 }
 
 function resetGame() {
   level = 1;
+  gameSeq = [];
+  newSequence = [];
   $(".btn-game").remove();
 
   initializeLevel();
@@ -129,11 +130,11 @@ function resetGame() {
 
 $("#start-button").click(initializeLevel);
 //$("#restart-button").click(resetGame);
-$("#button-box").on("click","#restart-button",resetGame);
+$("#button-box").on("click", "#restart-button", resetGame);
 //$("#check-button").click(checkSequence);
 //$("#continue-button").click(initializeLevel);
-$("#button-box").on("click","#continue-button",initializeLevel);
-$("#button-box").on("click","#check-button",checkSequence);
+$("#button-box").on("click", "#continue-button", initializeLevel);
+$("#button-box").on("click", "#check-button", checkSequence);
 
 $("#game-box").on("click", ".btn-game", function () {
   $(this).addClass("game-active");
