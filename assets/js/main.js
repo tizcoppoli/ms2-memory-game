@@ -1,15 +1,16 @@
 console.log("Hello, World!");
 
-let gameSeq = [];
-let newSequence = [];
+let playerSequence = [];
+let randomSequence = [];
 let level = 0;
 let maximumLevel = 5;
 
 function startGame() {
   let arrayOfPossibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let gameButtons = $(".btn-game.btn-level-active");
+  playerSequence = [];
 
-/* for (button of gameButtons) {
+  /* for (button of gameButtons) {
   button.disabled = true;
   console.log(button.disabled);
 } */
@@ -31,7 +32,6 @@ function startGame() {
     `);
 
     $(".btn-game").addClass("d-none");
-
   }
 
   $("#button-box").children().remove();
@@ -42,12 +42,12 @@ function startGame() {
 function generatingSequence(level, arrayOfPossibilities) {
   for (let i = 0; i < level; i++) {
     let random = Math.floor(Math.random() * arrayOfPossibilities.length);
-    newSequence[i] = arrayOfPossibilities.splice(random, 1)[0];
+    randomSequence[i] = arrayOfPossibilities.splice(random, 1)[0];
   }
 
-  console.log(newSequence);
-  console.log(gameSeq);
-  return newSequence;
+  console.log(randomSequence);
+  console.log(playerSequence);
+  return randomSequence;
 }
 
 function setTimer() {
@@ -101,21 +101,26 @@ function arrayToString(initialArray) {
 }
 
 function checkSequence() {
-  let sequenceString = arrayToString(newSequence);
-  let gameString = arrayToString(gameSeq);
+  let sequenceString = arrayToString(randomSequence);
+  let gameString = arrayToString(playerSequence);
 
-  if (sequenceString === gameString) {
-    $("#information-box")[0].innerHTML = `<h2>Correct!</h2>`;
-
-    $("#button-box")[0].innerHTML = `
+  if (playerSequence.includes(undefined) || playerSequence.length === 0) {
+    $("#information-box")[0].innerHTML = `<p> 
+    Please fill <strong>all</strong> the boxes before checking the result!</p>`;
+  } else {
+    if (sequenceString === gameString) {
+      $("#information-box")[0].innerHTML = `<h2>Correct!</h2>
+      <p>Click <strong>Continue</strong> for the next level.</p>`;
+      $("#button-box")[0].innerHTML = `
     <button id="continue-button" type="button" class="btn btn-primary">Continue</button>
   `;
-  } else {
-    $("#information-box")[0].innerHTML = `<h2>Wrong!</h2>`;
-
-    $("#button-box")[0].innerHTML = `
+    } else {
+      $("#information-box")[0].innerHTML = `<h2>Wrong!</h2>
+      <p>I'm sorry! Click <strong>Restart</strong> to try again.</p>`;
+      $("#button-box")[0].innerHTML = `
     <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
   `;
+    }
   }
 }
 
@@ -135,8 +140,8 @@ function initializeLevel() {
 
 function resetGame() {
   level = 1;
-  gameSeq = [];
-  newSequence = [];
+  playerSequence = [];
+  random = [];
   $(".btn-game").remove();
 
   initializeLevel();
@@ -145,10 +150,7 @@ function resetGame() {
 /* EVENT HANDLERS */
 
 $("#start-button").click(initializeLevel);
-//$("#restart-button").click(resetGame);
 $("#button-box").on("click", "#restart-button", resetGame);
-//$("#check-button").click(checkSequence);
-//$("#continue-button").click(initializeLevel);
 $("#button-box").on("click", "#continue-button", initializeLevel);
 $("#button-box").on("click", "#check-button", checkSequence);
 
@@ -164,6 +166,6 @@ $(".btn-selector").click(function () {
   <img src="assets/images/figure-${wantedId}.png">`;
 
   $(".game-active").removeClass("game-active");
-  gameSeq[buttonPosition - 1] = wantedId;
-  console.log(gameSeq);
+  playerSequence[buttonPosition - 1] = wantedId;
+  console.log(playerSequence);
 });
