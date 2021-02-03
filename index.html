@@ -42,35 +42,29 @@
     <!-- GAME-AREA -->
     <div class="container-fluid game-area">
         <div class="row">
-            <div class="col-12 text-center" id="intro-text">
-                <p class="game-text">Watch! You have
-                <h2> <span id="game-span">5</span> </h2> seconds!</p>
-                <!-- <p>Game Area</p> -->
+
+            <!-- <div id="information-box" class="col-12 text-center align-middle">
+                <h2>Press Start!</h2>
+                <div class="col-12 text-center d-none" id="intro-text">
+                    <p class="game-text">Watch! You have
+                    <h2> <span id="game-span">5</span> </h2> seconds!</p>
+                </div>
+                <div class="col-12 text-center d-none" id="game-text">
+                    <p><strong>Click</strong> a box to choose a color!</p>
+                    <p>Once you have done click <strong>Check Result</strong>.</p>
+                </div>
+            </div> -->
+
+            <div id="information-box" class="col-12 text-center">
+                <p>Press <strong>Start</strong> to begin the game!</p>
             </div>
-            <div class="col-12 text-center d-none" id="game-text">
-                <p><strong>Click</strong> a box to choose a color!</p>
-                <p>Once you have done click <strong>Check Result</strong>.</p>
-            </div>
-            <div class="col-12 text-center">
-                <button class="btn-game" id="gm-1" data-bs-toggle="modal" data-bs-target="#gameModal">
-                    <img src="assets/images/figure-x.png">
-                </button>
-                <button class="btn-game" id="gm-2" data-bs-toggle="modal" data-bs-target="#gameModal">
-                    <img src="assets/images/figure-x.png">
-                </button>
-                <button class="btn-game" id="gm-3" data-bs-toggle="modal" data-bs-target="#gameModal">
-                    <img src="assets/images/figure-x.png">
-                </button>
-                <button class="btn-game" id="gm-4" data-bs-toggle="modal" data-bs-target="#gameModal">
-                    <img src="assets/images/figure-x.png">
-                </button>
-                <button class="btn-game" id="gm-5" data-bs-toggle="modal" data-bs-target="#gameModal">
-                    <img src="assets/images/figure-x.png">
-                </button>
+
+            <div id="game-box" class="col-12 text-center">
+               
             </div>
         </div>
     </div>
-    </div>
+
 
     <!-- MODAL -->
 
@@ -124,16 +118,13 @@
     </div>
 
     <!-- HUD-LOW -->
-    <div class="container-fluid hud-low">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12 text-center">
+            <div id="button-box" class="col-12 text-center">
                 <button id="start-button" type="button" class="btn btn-primary">Start</button>
-            </div>
-            <div class="col-12 text-center">
-                <button id="check-button" type="button" class="btn btn-primary d-none">Check Result</button>
-            </div>
-            <div class="col-12 text-center">
-                <button id="restart-button" type="button" class="btn btn-primary d-none">Restart</button>
+               <!--  <button id="check-button" type="button" class="btn btn-primary">Check Result</button>
+                <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
+                <button id="continue-button" type="button" class="btn btn-primary">Continue</button> -->
             </div>
         </div>
     </div>

@@ -1,79 +1,87 @@
 console.log("Hello, World!");
 
-let gameSeq = [1, 2, 3, 4, 5];
+let gameSeq = [];
 let newSequence = [];
+let level = 1;
 
-function generatingSequence(num, array) {
-  newSequence = [];
+function startGame() {
+  let arrayOfPossibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  let gameButtons = $(".btn-game.btn-level-active");
+  let sequence = generatingSequence(level, arrayOfPossibilities);
 
-  for (let i = 0; i < num; i++) {
-    let random = Math.floor(Math.random() * array.length);
-    newSequence[i] = array.splice(random, 1)[0];
-  }
-  console.log(newSequence);
-  console.log(gameSeq);
-  return newSequence;
-}
-
-function initializeButtons() {
-  $(".btn-game img").css("opacity", 1);
-  let gameButtons = $(".btn-game");
-
-  let sequence = generatingSequence(5, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+  $("#information-box")[0].innerHTML = `
+    <p>You have <h2>5</h2> seconds!</p>
+    `;
 
   for (let i = 0; i < gameButtons.length; i++) {
     gameButtons[i].innerHTML = `
     <img src="assets/images/figure-${sequence[i]}.png">
     `;
+    console.log(sequence[i]);
   }
 
-  let time = $("#game-span")[0].innerHTML;
+ $("#button-box").children().remove();
 
-  $("#start-button").addClass("d-none");
-  $("#restart-button").addClass("d-none");
-  $("#check-button").addClass("d-none");
+  setTimer();
+}
 
-  $("#game-text").addClass("d-none");
-      $("#intro-text").removeClass("d-none");
+function generatingSequence(level, arrayOfPossibilities) {
+  for (let i = 0; i < level; i++) {
+    let random = Math.floor(Math.random() * arrayOfPossibilities.length);
+    newSequence[i] = arrayOfPossibilities.splice(random, 1)[0];
+  }
+
+  console.log(newSequence);
+  console.log(gameSeq);
+  return newSequence;
+}
+
+function setTimer() {
+  let timeLeft = 5;
 
   let timer = setInterval(function () {
-    time--;
-    $("#game-span")[0].innerHTML = time;
+    timeLeft--;
 
-    console.log(time);
+    $("#information-box")[0].innerHTML = `
+    <p>You have <h2>${timeLeft}</h2> seconds!</p>
+    `;
 
-    if (time <= 0) {
-      //$(".btn-game img").css("opacity", 0);
+    
+    console.log(timeLeft);
 
-      for (let button of gameButtons) {
-        button.innerHTML = `
-  <img src="assets/images/figure-x.png">
-  `;
-        console.log("success");
-      }
-      $("#restart-button").removeClass("d-none");
-      $("#check-button").removeClass("d-none");
-      $("#game-text").removeClass("d-none");
-      $("#intro-text").addClass("d-none");
-
-
-
-      $("#game-span")[0].innerHTML = "";
+    if (timeLeft <= 0) {
       clearInterval(timer);
-      $("#game-span")[0].innerHTML = 5;
+      coverImages();
     }
   }, 1000);
 }
 
-function arrayToString(array) {
-  let string="";
+function coverImages(timer) {
+  let gameButtons = $(".btn-game");
 
-  for (let element of array) {
-    string = string + " " + element;
+  for (let button of gameButtons) {
+    button.innerHTML = `
+<img src="assets/images/figure-x.png">
+`;
+    console.log("success");
   }
 
-  console.log(string);
-  return string;
+  $("#information-box")[0].innerHTML = `
+  <p><strong>Click</strong> a box to choose a color!<br>
+  Once you have done click <strong>Check Result</strong>.</p>
+  `;
+
+  $("#button-box")[0].innerHTML = `
+  <button id="check-button" type="button" class="btn btn-primary">Check Result</button>
+  `;
+}
+
+function arrayToString(initialArray) {
+  let convertedString = "";
+  for (let element of initialArray) {
+    convertedString = convertedString + " " + element;
+  }
+  return convertedString;
 }
 
 function checkSequence() {
@@ -81,37 +89,64 @@ function checkSequence() {
   let gameString = arrayToString(gameSeq);
 
   if (sequenceString === gameString) {
-    window.alert("Correct Sequence!");
+    $("#information-box")[0].innerHTML = `<h2>Correct!</h2>`;
+
+    $("#button-box")[0].innerHTML = `
+    <button id="continue-button" type="button" class="btn btn-primary">Continue</button>
+  `;
+
+    if (level < 10) {
+      level++;
+    }
   } else {
-    window.alert("Wrong Sequence!");
+    $("#information-box")[0].innerHTML = `<h2>Wrong!</h2>`;
+
+    $("#button-box")[0].innerHTML = `
+    <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
+  `;
   }
+}
+
+/* LEVELS */
+
+function initializeLevel() {
+  $("#game-box").append(`
+<button class="btn-game btn-level-active" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
+</button>
+`);
+
+  startGame();
+}
+
+function resetGame() {
+  level = 1;
+  $(".btn-game").remove();
+
+  initializeLevel();
 }
 
 /* EVENT HANDLERS */
 
-$("#start-button").click(initializeButtons);
-$("#restart-button").click(initializeButtons);
-$("#check-button").click(checkSequence);
+$("#start-button").click(initializeLevel);
+//$("#restart-button").click(resetGame);
+$("#button-box").on("click","#restart-button",resetGame);
+//$("#check-button").click(checkSequence);
+//$("#continue-button").click(initializeLevel);
+$("#button-box").on("click","#continue-button",initializeLevel);
+$("#button-box").on("click","#check-button",checkSequence);
 
-$(".btn-game").click(function () {
-  console.log(this.id);
-
+$("#game-box").on("click", ".btn-game", function () {
   $(this).addClass("game-active");
-  let wantedId;
 });
 
 $(".btn-selector").click(function () {
-  wantedId = this.id;
-
+  let wantedId = this.id;
   let buttonPosition = $(".game-active")[0].id.slice(3);
   console.log(buttonPosition);
-
   $(".game-active")[0].innerHTML = `
-  <img src="assets/images/figure-${wantedId}.png">
-  `;
+  <img src="assets/images/figure-${wantedId}.png">`;
 
   $(".game-active").removeClass("game-active");
-
   gameSeq[buttonPosition - 1] = wantedId;
   console.log(gameSeq);
 });
