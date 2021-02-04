@@ -3,28 +3,32 @@ console.log("Hello, World!");
 let playerSequence = [];
 let randomSequence = [];
 let level = 0;
-let maximumLevel = 5;
+let maximumLevel = 10;
+
+function initializeLevel() {
+  if (level < maximumLevel) {
+    level++;
+    $("#game-box").append(`
+<button class="btn-game btn-level-active d-none" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
+</button>
+`);
+  }
+
+  startGame();
+}
 
 function startGame() {
   let arrayOfPossibilities = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   let gameButtons = $(".btn-game.btn-level-active");
   playerSequence = [];
 
-  /* for (button of gameButtons) {
-  button.disabled = true;
-  console.log(button.disabled);
-} */
-
   let sequence = generatingSequence(level, arrayOfPossibilities);
 
   $("#information-box")[0].innerHTML = `
-    <p>You have <h2>5</h2> seconds!</p>
+    <p>You have <h2>${setTimeLeft()}</h2> seconds!</p>
     `;
 
   for (let i = 0; i < gameButtons.length; i++) {
-    /* gameButtons[i].innerHTML = `
-    <img src="assets/images/figure-${sequence[i]}.png">
-    `; */
     console.log(sequence[i]);
 
     $("#game-box").append(`
@@ -51,7 +55,7 @@ function generatingSequence(level, arrayOfPossibilities) {
 }
 
 function setTimer() {
-  let timeLeft = 5;
+  let timeLeft = setTimeLeft();
 
   let timer = setInterval(function () {
     timeLeft--;
@@ -67,6 +71,10 @@ function setTimer() {
       coverImages();
     }
   }, 1000);
+}
+
+function setTimeLeft(){
+  return level+2;
 }
 
 function coverImages(timer) {
@@ -124,24 +132,14 @@ function checkSequence() {
   }
 }
 
-/* LEVELS */
 
-function initializeLevel() {
-  if (level < maximumLevel) {
-    level++;
-    $("#game-box").append(`
-<button class="btn-game btn-level-active d-none" id="gm-${level}" data-bs-toggle="modal" data-bs-target="#gameModal">
-</button>
-`);
-  }
-
-  startGame();
-}
 
 function resetGame() {
-  level = 1;
+  console.log("il livello è" + level);
+  level = 0;
+  console.log("il livello ORA è" + level);
   playerSequence = [];
-  random = [];
+  randomSequence = [];
   $(".btn-game").remove();
 
   initializeLevel();
