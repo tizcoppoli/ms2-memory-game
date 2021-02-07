@@ -115,9 +115,23 @@
     <div class="container">
         <div class="row">
             <div class="col-12 text-center" id="information-box">
-
                 <p>Press <strong>Start</strong> to begin the game!</p>
+            </div>
+        </div>
+    </div>
 
+    <!-- ENDGAME-BOX -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center d-none" id="endgame-box">
+                <form id="form-reward" onsubmit="return sendMail(this);">
+                    <div class="mb-3">
+                        <label for="recipient-name" class="col-form-label">Insert your email address</label>
+                        <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress" placeholder="email" required>
+                        <input type="submit" class="btn btn-primary">
+                    </div>                        
+                </form>
             </div>
         </div>
     </div>
@@ -165,7 +179,7 @@
 
     <!-- MODAL-REWARD -->
 
-    <!--  <div class="modal fade" id="modal-reward" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+     <div class="modal fade" id="modal-reward" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -173,12 +187,16 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
+
                     <form id="form-reward" onsubmit="return sendMail(this);">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Mail:</label>
-                            <input type="mail" class="form-control" id="form-reward-mail">
+                            <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress" placeholder="email" required>
+                            <input type="submit" class="btn btn-primary">Send message</button>
                         </div>                        
                     </form>
+
+                    
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -186,19 +204,14 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- BUTTON-BOX -->
 
     <div class="container">
         <div class="row">
             <div id="button-box" class="col-12 text-center">
-
                 <button id="start-button" type="button" class="btn btn-primary">Start</button>
-                <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-reward">Send
-                    Mail</button> -->
-                <!-- JS generated content in here -->
-
             </div>
         </div>
     </div>
@@ -250,6 +263,8 @@
             </div>
         </div>
     </div>
+
+    
 
     <!-- FOOTER -->
 

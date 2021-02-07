@@ -3,8 +3,8 @@
 }
 
 .title-box {
-/*   background-color: salmon;
- */  margin: 20px;
+  /* background-color: salmon; */
+  margin: 20px;
 }
 
 #progress-box {
@@ -12,25 +12,30 @@
   margin-right: auto;
   margin-left: auto;
   max-width: 400px ;
-/*   background-color: bisque;
- */}
+  /* background-color: bisque; */
+}
 
 #game-box {
-/*   background-color: beige;
- */  margin: 20px;
+  /* background-color: beige; */
+  margin: 20px;
 }
 
 #information-box {
   padding-top: 50px;
   margin: 20px;
-/*   background-color: cadetblue;
- */  height: 100px;
+  /* background-color: cadetblue; */
+  height: 100px;
 }
 
 #button-box {
   margin: 20px;
-/*   background-color: darkgray;
- */}
+  /* background-color: darkgray; */
+}
+
+#endgame-box {
+  margin: 20px;
+  /* background-color: darkseagreen; */
+}
 
 /* PROGRESS-BOX */
 
@@ -99,5 +104,14 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  opacity: 80%;
+  opacity: 20%;
+}
+
+/* ENDGAME-BOX */
+
+#form-reward-mail {
+  max-width: 400px;
+  margin: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }

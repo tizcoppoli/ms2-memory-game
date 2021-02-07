@@ -1,17 +1,24 @@
 console.log("Hello, World from main!");
 
-function setRewardScreen() {
+function showEndScreen() {
+
+  /* $('#modal-reward').modal('show'); */
+
+  $("#endgame-box").removeClass("d-none");
+
   $("#information-box").html(`<h2>Greetings!</h2>
   <p>You win! Click <strong>Restart</strong> to play again.</p>`);
-  $("#game-box").html(`<i class="fas fa-trophy"></i>
+ 
+  /* $("#game-box").html(`<i class="fas fa-trophy"></i>
   <form id="form-reward" onsubmit="return sendMail(this);">
                         <div class="mb-3">
                             <label for="recipient-name" class="col-form-label">Mail:</label>
                             <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress" placeholder="email" required>
-                            <input type="submit" class="btn btn-primary">Send message</button>
+                            <input type="submit" class="btn btn-primary">
                         </div>                        
                     </form>
-  `);
+  `); */
+  
   $("#button-box")[0].innerHTML = `
     <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
   `;
@@ -33,9 +40,9 @@ function newGame(level) {
     "#f76c5e",
     "#e5d1d0",
   ];
-
+  initializeGameObjects(slotCollection);
   setHiddenValues(
-    generateRandomSequence(level, arrayOfPossibilities, copyArray),
+    generateRandomSequence(level, arrayOfPossibilities),
     slotCollection
   );
   initializeGameArea(level, slotCollection);
@@ -50,6 +57,7 @@ function resetGame() {
   let slotActiveCollection = $(".level-active");
   slotActiveCollection.addClass("d-none");
   slotActiveCollection.removeClass("level-active");
+  $("#endgame-box").addClass("d-none");
   $(".slot-active").removeClass("slot-active");
   $(".game-slot-button").addClass("d-none");
   $(".fas.fa-check.correct-answer")
@@ -59,7 +67,7 @@ function resetGame() {
   $(".fas.fa-times.wrong-answer")
     .removeClass("fas")
     .removeClass("fa-times")
-    .removeClass("wrong-answer");    
+    .removeClass("wrong-answer");
 }
 
 /* rende visibili gli oggetti del livello corrente e aggiunge delle classi*/
@@ -80,9 +88,9 @@ function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
 }
 
 /* genera una sequenza random */
-function generateRandomSequence(numberOfElements, arrayOfPossibilities, copy) {
+function generateRandomSequence(numberOfElements, arrayOfPossibilities) {
   let randomSequence = [];
-  let possibilities = copy(arrayOfPossibilities);
+  let possibilities = cloneArray(arrayOfPossibilities);
   for (let i = 0; i < numberOfElements; i++) {
     let randomIndex = Math.floor(Math.random() * possibilities.length);
     randomSequence[i] = possibilities.splice(randomIndex, 1)[0];
@@ -92,12 +100,12 @@ function generateRandomSequence(numberOfElements, arrayOfPossibilities, copy) {
 }
 
 /* restituisce una copia dell'array originale */
-function copyArray(arrayToCopy) {
-  let copiedArray = [];
-  for (let i = 0; i < arrayToCopy.length; i++) {
-    copiedArray[i] = arrayToCopy[i];
+function cloneArray(arrayToClone) {
+  let clonedArray = [];
+  for (let i = 0; i < arrayToClone.length; i++) {
+    clonedArray[i] = arrayToClone[i];
   }
-  return copiedArray;
+  return clonedArray;
 }
 
 /* setta i valori all'interno degli oggetti */
@@ -105,7 +113,17 @@ function setHiddenValues(randomSequence, slotCollection) {
   for (let i = 0; i < randomSequence.length; i++) {
     slotCollection[i].hiddenValue = randomSequence[i];
     slotCollection[i].style.background = slotCollection[i].hiddenValue;
-    slotCollection[i].isCorrect = false;
+    /* slotCollection[i].isCorrect = undefined; */
+  }
+}
+
+function initializeGameObjects(slotCollection) {
+  console.log("initializeGameObjects chiamata");
+
+  for (let i = 0; i < slotCollection.length; i++) {
+    slotCollection[i].isCorrect = undefined;
+    slotCollection[i].givenValue = undefined;
+    slotCollection[i].hiddenValue = undefined;
   }
 }
 
@@ -116,18 +134,49 @@ function checkValue(gameSlot) {
     console.log("il valore è corretto");
     return true;
   } else {
-    setLoseScreen();
+    gameSlot.isCorrect = false;
     console.log("il valore è sbagliato");
     return false;
   }
 }
 
 /* controlla tutte le risposte date */
-function checkAllValues(slotCollection) {
+/* function checkAllValues(slotCollection) {
   for (let slot of slotCollection) {
     console.log(slot.isCorrect);
     if (slot.isCorrect) {
     } else {
+      return false;
+    }
+  }
+  return true;
+} */
+
+/* function checkAllValues2(slotCollection) {
+  for (let slot of slotCollection) {
+    console.log(slot.isCorrect);
+    if (slot.isCorrect) {
+    } else {
+      return false;
+    }
+  }
+  return true;
+} */
+
+function checkAllFilled(slotCollection) {
+  for (let slot of slotCollection) {
+    if (slot.isCorrect == undefined) {
+      console.log("almeno un undefined");
+      return false;
+    }
+  }
+  console.log("tutti i valori sono definiti");
+  return true;
+}
+
+function checkAllCorrect(slotCollection) {
+  for (let slot of slotCollection) {
+    if (!slot.isCorrect) {
       return false;
     }
   }
@@ -140,7 +189,7 @@ function setTimer(timeLeft, functionAfterTimer) {
     console.log(timeLeft);
     timeLeft--;
     updateWaitScreen(timeLeft);
-    
+
     if (timeLeft <= 0) {
       clearInterval(timer);
       console.log("tempo esaurito");
@@ -166,8 +215,8 @@ function incrementProgressBar(level) {
   }, 400);
 }
 
-function resetProgressBar(){
-  $(".progress-bar-game").css("width","0%");  
+function resetProgressBar() {
+  $(".progress-bar-game").css("width", "0%");
   $(".dot").css("background-color", "#e9ecef");
 }
 
@@ -233,13 +282,27 @@ $(".button-game-choice").click(function () {
     $(".slot-active").addClass("fas fa-times wrong-answer");
   }
 
-  if (checkAllValues(slotCollection)) {
+  if (checkAllFilled(slotCollection)) {
+    if (checkAllCorrect(slotCollection)) {
+      console.log("tutti i valori sono giusti");
+      incrementProgressBar($(".level-active").length);
+      currentLevel === 6 ? showEndScreen() : setWinScreen();
+    } else {
+      console.log("almeno un valore è sbagliato");
+      setLoseScreen();
+      showEndScreen();
+    }
+  } else {
+    console.log("riempi gli altri slot");
+  }
+
+  /* if (checkAllValues(slotCollection)) {
     console.log("tutti i valori sono giusti");
     incrementProgressBar($(".level-active").length);
     currentLevel === 6 ? console.log("hai vinto") : setWinScreen();
   } else {
     console.log("almeno un valore è sbagliato");
-  }
+  } */
 });
 
 $("#button-box").on("click", "#start-button", function () {
