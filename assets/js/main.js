@@ -1,24 +1,13 @@
 console.log("Hello, World from main!");
 
 function showEndScreen() {
-
   /* $('#modal-reward').modal('show'); */
-
+  let score = $("#score-text").html();
   $("#endgame-box").removeClass("d-none");
 
-  $("#information-box").html(`<h2>Greetings!</h2>
-  <p>You win! Click <strong>Restart</strong> to play again.</p>`);
- 
-  /* $("#game-box").html(`<i class="fas fa-trophy"></i>
-  <form id="form-reward" onsubmit="return sendMail(this);">
-                        <div class="mb-3">
-                            <label for="recipient-name" class="col-form-label">Mail:</label>
-                            <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress" placeholder="email" required>
-                            <input type="submit" class="btn btn-primary">
-                        </div>                        
-                    </form>
-  `); */
-  
+  $("#information-box").html(`<h2>Thanks for playing!</h2>
+  <p>Your score is: <strong>${score}%</strong><br>Insert an <strong>email address</strong> to share your result!</p>`);
+
   $("#button-box")[0].innerHTML = `
     <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
   `;
@@ -40,6 +29,7 @@ function newGame(level) {
     "#f76c5e",
     "#e5d1d0",
   ];
+
   initializeGameObjects(slotCollection);
   setHiddenValues(
     generateRandomSequence(level, arrayOfPossibilities),
@@ -76,6 +66,7 @@ function initializeGameArea(level, slotCollection) {
     slotCollection[i].classList.remove("d-none");
     slotCollection[i].classList.add("level-active");
   }
+  activateDot($("#dot-0"));
 }
 
 /*dichiara le proprietà delle scelte e le inizializza */
@@ -140,29 +131,6 @@ function checkValue(gameSlot) {
   }
 }
 
-/* controlla tutte le risposte date */
-/* function checkAllValues(slotCollection) {
-  for (let slot of slotCollection) {
-    console.log(slot.isCorrect);
-    if (slot.isCorrect) {
-    } else {
-      return false;
-    }
-  }
-  return true;
-} */
-
-/* function checkAllValues2(slotCollection) {
-  for (let slot of slotCollection) {
-    console.log(slot.isCorrect);
-    if (slot.isCorrect) {
-    } else {
-      return false;
-    }
-  }
-  return true;
-} */
-
 function checkAllFilled(slotCollection) {
   for (let slot of slotCollection) {
     if (slot.isCorrect == undefined) {
@@ -211,13 +179,23 @@ function coverGameSlots(gameButtonCollection) {
 function incrementProgressBar(level) {
   $(`#lv-${level}`).css("width", "100%");
   setTimeout(function () {
-    $(`#dot-${level}`).css("background-color", "#0d6efd");
+    let dot = $(`#dot-${level}`);
+
+    activateDot(dot);
+    dot.css("background-color", "#0d6efd");
+    dot.children().css("background-color", "#ffffff").children().remove();
   }, 400);
+}
+
+function activateDot(dot) {
+  dot.css("background-color", "#0d6efd");
+  dot.children().css("background-color", "#ffffff").children().remove();
 }
 
 function resetProgressBar() {
   $(".progress-bar-game").css("width", "0%");
   $(".dot").css("background-color", "#e9ecef");
+  $("#dot-0").css("background-color", "#e9ecef");
 }
 
 function setWinScreen() {
@@ -240,7 +218,7 @@ function setLoseScreen() {
 
 function setWaitScreen(timeLeft) {
   $("#information-box")[0].innerHTML = `
-    <p><strong>${timeLeft}</strong> seconds left!</p>
+    <p>Memorize the sequence! <strong>${timeLeft}</strong> seconds left!</p>
     `;
 }
 
@@ -250,11 +228,41 @@ function updateWaitScreen(timeLeft) {
 
 function setGameScreen() {
   $("#information-box")[0].innerHTML = `
-  <p><strong>Click</strong> to choose a color!</p>
+  <p><strong>Click</strong> the <strong>"?"</strong> to choose a color!</p>
   `;
 }
 
-/* handlers modificati */
+function setGoodOptionScreen() {
+  $("#information-box")[0].innerHTML = `
+  <h2>Good!</h2><p><strong>Click</strong> the <strong>"?"</strong> to choose a color!</p>
+  `;
+}
+
+function setBadOptionScreen() {
+  $("#information-box")[0].innerHTML = `
+  <h2>Ouch!</h2><p><strong>I'm sorry!</strong> The game is over but you can still improve your score!</p>
+  `;
+}
+
+/* function incrementGlobalScore() {
+  let globalScore = parseFloat($("#score-text").html());
+  console.log(globalScore);
+  globalScore += 4.761904761904762;
+  console.log(globalScore);
+  $("#score-text").html(globalScore.toFixed(2));
+} */
+
+function incrementGlobalScore() {
+  let globalScore = parseFloat($("#score-text").html());
+  globalScore += 4.76;
+  /* $(".level-active").length === 6 ? (globalScore = 100) : (globalScore += 4.76); */
+  if (globalScore > 99) {
+    globalScore = 100;
+  }
+  $("#score-text").html(globalScore.toFixed(2));
+}
+
+/* EVENT-HANDLERS */
 
 $("#game-box").on("click", ".game-slot-button", function () {
   $(".slot-active").removeClass("slot-active");
@@ -278,14 +286,18 @@ $(".button-game-choice").click(function () {
 
   if (checkValue(slotToCheck)) {
     $(".slot-active").addClass("fas fa-check correct-answer");
+    setGoodOptionScreen();
+    incrementGlobalScore();
   } else {
     $(".slot-active").addClass("fas fa-times wrong-answer");
+    setBadOptionScreen();
   }
 
   if (checkAllFilled(slotCollection)) {
     if (checkAllCorrect(slotCollection)) {
       console.log("tutti i valori sono giusti");
       incrementProgressBar($(".level-active").length);
+      /* incrementGlobalScore(); */
       currentLevel === 6 ? showEndScreen() : setWinScreen();
     } else {
       console.log("almeno un valore è sbagliato");
@@ -295,20 +307,13 @@ $(".button-game-choice").click(function () {
   } else {
     console.log("riempi gli altri slot");
   }
-
-  /* if (checkAllValues(slotCollection)) {
-    console.log("tutti i valori sono giusti");
-    incrementProgressBar($(".level-active").length);
-    currentLevel === 6 ? console.log("hai vinto") : setWinScreen();
-  } else {
-    console.log("almeno un valore è sbagliato");
-  } */
 });
 
 $("#button-box").on("click", "#start-button", function () {
   newGame(1);
 });
 $("#button-box").on("click", "#restart-button", function () {
+  $("#score-text").html("0");
   resetProgressBar();
   resetGame();
   newGame(1);

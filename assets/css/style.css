@@ -11,7 +11,7 @@
   margin: 20px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 400px ;
+  max-width: 400px;
   /* background-color: bisque; */
 }
 
@@ -52,14 +52,40 @@
   z-index: 10;
 }
 
+#dot-0 {
+  left: -15px;
+}
+
+/* da controllare */
 .inner-dot {
   width: 14px;
   height: 14px;
-  background: #ffffff;
+  /* background: #ffffff; */
   border-radius: 50px;
   position: absolute;
   top: 8px;
   left: 8px;
+  color: white;
+}
+
+/* da controllare */
+/* .inner-icon {
+  width: 14px;
+  height: 14px;  
+  position: absolute;
+  margin: auto;
+  
+  color: white;
+} */
+
+.inner-dot i {
+  position: absolute;
+  left: 0px;
+  line-height: 14px;
+}
+
+.inner-dot .fa-trophy  {
+  left: -2px;
 }
 
 .progress-game {
@@ -72,6 +98,11 @@
 .progress-bar-game {
   overflow: visible;
   width: 0%;
+}
+
+.score {
+  margin-top: 20px;
+  color: #0d6efd;
 }
 
 /* GAME-BOX */
@@ -104,7 +135,7 @@
   height: 100px;
   width: 100px;
   border-radius: 50%;
-  opacity: 20%;
+  opacity: 80%;
 }
 
 /* ENDGAME-BOX */
