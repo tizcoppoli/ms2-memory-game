@@ -34,14 +34,24 @@ body {
   margin-bottom: 40px;
 }
 
+/********** INFORMATION-BOX **********/
+
 #information-box {
   padding-top: 10px;
-
-  height: 100px;
+  /* height: 100px; */
 }
 
 #endgame-box {
   padding-bottom: 40px;
+}
+
+#start-button,
+#continue-button {
+  border: none;
+  text-transform: uppercase;
+  background: transparent;
+  padding: 0;
+  font-weight: 600;
 }
 
 /********** CALLOUT **********/
@@ -68,6 +78,16 @@ body {
 .callout .callout-subtitle {
   font-size: 1.25rem;
 }
+
+.primary {
+  width: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  color: black;
+  height: 2px;
+  opacity: 100%;
+}
+
 
 .callout .callout-scroll {
   position: absolute;
@@ -169,6 +189,7 @@ body {
   border-radius: 2%;
   display: inline-block;
   margin: 5px 15px;
+  box-shadow: 2px 2px 2px #000;
 }
 
 .game-slot {

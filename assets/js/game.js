@@ -63,7 +63,9 @@ function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
   for (let i = 0; i < choiceCollection.length; i++) {
     choiceCollection[i].storedValue = arrayOfPossibilities[i];
     /* choiceCollection[i].style.background = choiceCollection[i].storedValue; */
-    choiceCollection[i].style.backgroundImage = `url(assets/images/${choiceCollection[i].storedValue}.png)`;
+    choiceCollection[
+      i
+    ].style.backgroundImage = `url(assets/images/${choiceCollection[i].storedValue}.png)`;
     console.log(arrayOfPossibilities[i]);
   }
 }
@@ -93,7 +95,9 @@ function cloneArray(arrayToClone) {
 function setHiddenValues(randomSequence, slotCollection) {
   for (let i = 0; i < randomSequence.length; i++) {
     slotCollection[i].hiddenValue = randomSequence[i];
-    slotCollection[i].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
+    slotCollection[
+      i
+    ].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
     /* slotCollection[i].style.background = slotCollection[i].hiddenValue; */
     /* slotCollection[i].isCorrect = undefined; */
   }
@@ -205,11 +209,11 @@ function incrementGlobalScore() {
 
 function setWinScreen() {
   $("#button-box").removeClass("d-none");
-  $("#information-box")[0].innerHTML = `<h2>Correct!</h2>
-  <p>Click <strong>Continue</strong> for the next level.</p>`;
+  $("#information-box")[0].innerHTML = `<h2>Correct!</h2>`;
+  /* $("#button-box")[0].innerHTML = ``; */
   $("#button-box")[0].innerHTML = `
-<button id="continue-button" type="button" class="btn btn-primary">Continue</button>
-`;
+  <p>Click <button id="continue-button" type="button" class="btn btn-primary d-inline-block">Continue</button> for the next level.</p>
+  `;
 }
 
 function setLoseScreen() {
@@ -233,14 +237,14 @@ function updateWaitScreen(timeLeft) {
 
 function setGameScreen() {
   $("#information-box")[0].innerHTML = `
-  <p><strong>Click</strong> the <strong>"?"</strong> to choose a color!</p>
+  <p><strong>Click</strong> the <strong>"?"</strong> to choose a picture!</p>
   `;
 }
 
 function setGoodOptionScreen() {
   $("#information-box")[0].innerHTML = `
-  <h2>Good!</h2><p><strong>Click</strong> the <strong>"?"</strong> to choose a color!</p>
-  `;
+  <h2>Good!</h2></p>
+  `;  
 }
 
 function setBadOptionScreen() {
@@ -264,18 +268,18 @@ function setEndScreen() {
 
 /* EVENT-HANDLERS */
 
-$("#button-box").on("click", "#start-button", function () {
+$("body").on("click", "#start-button", function () {
   newGame(1);
 });
 
-$("#button-box").on("click", "#restart-button", function () {
+$("body").on("click", "#restart-button", function () {
   $("#score-text").html("0");
   resetProgressBar();
   resetGame();
   newGame(1);
 });
 
-$("#button-box").on("click", "#continue-button", function () {
+$("body").on("click", "#continue-button", function () {
   let currentLevel = $(".level-active").length;
   resetGame();
   newGame(currentLevel + 1);
