@@ -3,7 +3,7 @@
 
 <head>
 
-    <title>Memory Game</title>
+    <title>Travel Memory</title>
 
     <!-- META -->
     <meta charset="UTF-8">
@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
         crossorigin="anonymous">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Comfortaa&family=Fredericka+the+Great&family=Limelight&family=Ribeye&family=Ribeye+Marrow&display=swap"
+        rel="stylesheet">
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -34,14 +40,14 @@
 <body>
 
     <!---------- CALLOUT ---------->
-    <header class="callout callout-full text-white vh-100">
+    <header class="callout callout-full vh-100">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
                 <div class="col text-center">
-                    <img class="callout-logo mb-4" src="assets/images/logo-callout.svg" alt="">
-                    <div class="callout-title text-uppercase">Play Now</div>
+                    <div class="callout-title text-uppercase">Travel Memory</div>
                     <hr class="primary small">
                     <div class="callout-subtitle">Click the button below to start the game!</div>
+                    <img class="callout-logo mb-4" src="assets/images/logo5.png" alt="">                    
                 </div>
             </div>
         </div>
@@ -172,39 +178,53 @@
             <!-- GAME-BOX -->
             <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center" id="game-box">
-                        <div class="game-slot d-none" id="game-slot-0">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-0"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                    <div class="col-12 text-center position-relative" id="game-box">
+
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-0">
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-0"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
 
-                        <div class="game-slot d-none" id="game-slot-1">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-1"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-1">
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-1"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
 
-                        <div class="game-slot d-none" id="game-slot-2">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-2"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-2">
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-2"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
 
-                        <div class="game-slot d-none" id="game-slot-3">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-3"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-3">
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-3"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
 
-                        <div class="game-slot d-none" id="game-slot-4">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-4"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-4">
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-4"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
 
-                        <div class="game-slot d-none" id="game-slot-5">
-                            <button class="game-slot-button fas fa-question d-none" id="game-slot-button-5"
-                                data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                        <div class="game-frame d-none">
+                            <div class="game-slot d-none" id="game-slot-5">
+
+                                <button class="game-slot-button fas fa-question d-none" id="game-slot-button-5"
+                                    data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>           
+            </div>
 
             <!-- BUTTON-BOX -->
 
@@ -248,17 +268,17 @@
                             <button class="button-game-choice" id="button-game-choice-6" data-bs-dismiss="modal">
                             </button>
 
-                            <button class="button-game-choice" id="button-game-choice-7" data-bs-dismiss="modal">
+                            <!-- <button class="button-game-choice" id="button-game-choice-7" data-bs-dismiss="modal">
                             </button>
 
                             <button class="button-game-choice" id="button-game-choice-8" data-bs-dismiss="modal">
-                            </button>
+                            </button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
 
     <!-- BOOTSTRAP JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"

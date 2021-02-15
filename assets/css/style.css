@@ -1,10 +1,6 @@
 body {
-  /* background-color: #340a40; */
-  /* color: #fff; */
-  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/callout.jpg);
-  background-size: cover;
-  background-position: center;
+  background-image: linear-gradient(45deg, #f29559, #f2d492);
+  font-family: "Comfortaa", sans-serif;
   background-attachment: fixed;
 }
 
@@ -15,84 +11,58 @@ body {
 #progress-box {
   margin: 30px auto 20px;
   max-width: 400px;
-  /* background-color: bisque; */
+
   padding-top: 20px;
 }
 
 #game-box {
-  /* background-color: beige; */
-  /* margin: 20px; */
-  padding-top: 50px;
+  padding-top: 10px;
   padding-bottom: 20px;
 }
 
 #main-game {
+  background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
   max-width: 500px;
   height: 85vh;
   max-height: 500px;
   margin-left: auto;
   margin-right: auto;
-  /* background-color: #936B9B; */
-  background-color: rgb(255, 255, 255, 0.8);
+
   border-radius: 10%;
-  /* border-style: none; */
+
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
 #information-box {
-  padding-top: 50px;
-  /* margin: 20px; */
-  /* background-color: cadetblue; */
+  padding-top: 10px;
+
   height: 100px;
 }
 
-#button-box {
-  /* margin: 20px; */
-  /* background-color: darkgray; */
-}
-
 #endgame-box {
-  /* margin: 20px; */
-  /* background-color: darkseagreen; */
   padding-bottom: 40px;
 }
-
 
 /********** CALLOUT **********/
 
 .callout {
   position: relative;
-  /* background: -webkit-gradient(
-      linear,
-      left top,
-      left bottom,
-      from(rgba(0, 0, 0, 0.8)),
-      to(rgba(0, 0, 0, 0.7))
-    ),
-    url(../images/callout.jpg); */
-  /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(../images/callout.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll; */
 }
 
 .callout-full {
-  padding: 10rem 0;
+  padding: 5rem 0;
 }
 
 .callout .callout-logo {
-  height: 10rem;
+  height: 20rem;
 }
 
 .callout .callout-title {
   font-size: 3rem;
+  font-family: "Ribeye", sans-serif;
   line-height: 3rem;
-  font-family: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
-  font-weight: 900;
+  font-weight: 400;
 }
 
 .callout .callout-subtitle {
@@ -116,11 +86,11 @@ body {
   border-radius: 100%;
   border: 0.125rem;
   border-style: solid;
-  border-color: #fff;
+  border-color: #000;
   cursor: pointer;
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
-  color: #fff;
+  color: #000;
 }
 
 @media (min-width: 992px) {
@@ -132,8 +102,6 @@ body {
 }
 
 /********** /CALLOUT **********/
-
-
 
 /* PROGRESS-BOX */
 
@@ -154,11 +122,9 @@ body {
   left: -15px;
 }
 
-/* da controllare */
 .inner-dot {
   width: 14px;
   height: 14px;
-  /* background: #ffffff; */
   border-radius: 50px;
   position: absolute;
   top: 8px;
@@ -195,16 +161,40 @@ body {
 
 /* GAME-BOX */
 
+.game-frame {
+  background-color: cornsilk;
+  height: 135px;
+  position: relative;
+  width: 116px;
+  border-radius: 2%;
+  display: inline-block;
+  margin: 5px 15px;
+}
+
+.game-slot {
+  position: absolute;
+}
+
 .game-slot,
 .button-game-choice {
+  background-size: cover;
   width: 100px;
-  height: 100px;
-  margin: 5px;
-  border-radius: 50%;
+  height: 90px;
   border: none;
   display: inline-block;
   line-height: 100px;
   font-size: 40px;
+  left: 8px;
+  top: 8px;
+}
+
+.button-game-choice {
+  height: 100px;
+  width: 100px;
+}
+
+.button-game-choice {
+  border-radius: 50%;
 }
 
 .correct-answer {
@@ -220,9 +210,8 @@ body {
   background-color: black;
   border: none;
   color: white;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+  height: 100%;
+  width: 100%;
   opacity: 80%;
 }
 

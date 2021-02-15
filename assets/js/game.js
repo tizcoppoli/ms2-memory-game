@@ -6,15 +6,13 @@ function newGame(level) {
   let choiceCollection = $(".button-game-choice");
   let timeLeft = 5;
   let arrayOfPossibilities = [
-    "#4a4238",
-    "#4d5359",
-    "#508484",
-    "#79c99e",
-    "#97db4f",
-    "#f5dd90",
-    "#f68e5f",
-    "#f76c5e",
-    "#e5d1d0",
+    "amsterdam",
+    "china",
+    "japan",
+    "london",
+    "newyork",
+    "paris",
+    "italy",
   ];
 
   initializeGameObjects(slotCollection);
@@ -31,6 +29,7 @@ function newGame(level) {
 
 /* rende invisibili gli oggetti del livello corrente e ripristina le classi originali*/
 function resetGame() {
+  $(".game-frame").addClass("d-none");
   $("#game-box").removeClass("d-none");
   let slotActiveCollection = $(".level-active");
   slotActiveCollection.addClass("d-none");
@@ -52,6 +51,7 @@ function resetGame() {
 /* rende visibili gli oggetti del livello corrente e aggiunge delle classi*/
 function initializeGameArea(level, slotCollection) {
   for (let i = 0; i < level; i++) {
+    slotCollection[i].parentElement.classList.remove("d-none");
     slotCollection[i].classList.remove("d-none");
     slotCollection[i].classList.add("level-active");
   }
@@ -62,7 +62,8 @@ function initializeGameArea(level, slotCollection) {
 function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
   for (let i = 0; i < choiceCollection.length; i++) {
     choiceCollection[i].storedValue = arrayOfPossibilities[i];
-    choiceCollection[i].style.background = choiceCollection[i].storedValue;
+    /* choiceCollection[i].style.background = choiceCollection[i].storedValue; */
+    choiceCollection[i].style.backgroundImage = `url(assets/images/${choiceCollection[i].storedValue}.png)`;
     console.log(arrayOfPossibilities[i]);
   }
 }
@@ -92,7 +93,8 @@ function cloneArray(arrayToClone) {
 function setHiddenValues(randomSequence, slotCollection) {
   for (let i = 0; i < randomSequence.length; i++) {
     slotCollection[i].hiddenValue = randomSequence[i];
-    slotCollection[i].style.background = slotCollection[i].hiddenValue;
+    slotCollection[i].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
+    /* slotCollection[i].style.background = slotCollection[i].hiddenValue; */
     /* slotCollection[i].isCorrect = undefined; */
   }
 }
