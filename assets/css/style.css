@@ -1,7 +1,26 @@
 body {
-  background-image: linear-gradient(45deg, #f29559, #f2d492);
+  /* background-image:url(../images/bg-pattern.png), linear-gradient(45deg, #f29559, #f2d492); */
+  /* background-image: url(../images/bg-pattern.png); */
+  /* font-family: "Comfortaa", sans-serif; */
+  /* background-attachment: fixed; */
+
+  /* background-image: url(../images/bg-pattern2.png), linear-gradient(
+    45deg
+    , #f29559, #f2d492); */
+  background: #f29559;
+  background-image: url(../images/bg-pattern3.png);
+  /* background: #f29559; */
+  /* background-image: url(../images/bg-pattern.png); */
   font-family: "Comfortaa", sans-serif;
-  background-attachment: fixed;
+  /* background-attachment: fixed; */
+  background-size: 400px;
+  /* background: center; */
+  /* background-size: contain 200px; */
+}
+
+p {
+  padding: 10px;
+  margin-bottom: 0;
 }
 
 .row > * {
@@ -22,14 +41,13 @@ body {
 
 #main-game {
   background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
-  max-width: 500px;
-  height: 85vh;
-  max-height: 500px;
+  max-width: 600px;
+  /* height: 85vh; */
+  min-height: 400px;
+  /* max-height: 550px; */
   margin-left: auto;
   margin-right: auto;
-
-  border-radius: 10%;
-
+  border-radius: 40px;
   margin-top: 40px;
   margin-bottom: 40px;
 }
@@ -42,16 +60,52 @@ body {
 }
 
 #endgame-box {
-  padding-bottom: 40px;
+  padding-bottom: 20px;
 }
 
 #start-button,
-#continue-button {
+#continue-button,
+#restart-button,
+#form-button,
+#hard-reset-button {
   border: none;
   text-transform: uppercase;
   background: transparent;
   padding: 0;
   font-weight: 600;
+  /* margin-bottom: 15px; */
+  transform: all ease-in 0.2s;
+}
+
+#start-button:hover,
+#continue-button:hover,
+#restart-button:hover,
+#form-button:hover,
+#hard-reset-button:hover {
+  color: #a64253;
+}
+
+/* button:focus{
+  outline: none;
+} */
+
+#start-button:focus,
+#continue-button:focus,
+#restart-button:focus,
+#form-button:focus,
+#hard-reset-button:focus,
+.game-slot-button:focus {
+  outline: none;
+}
+
+#information-level-box {
+  display: none;
+  font-size: large;
+}
+
+.reward-trophy {
+  height: 170px;
+  margin: 15px;
 }
 
 /********** CALLOUT **********/
@@ -66,6 +120,13 @@ body {
 
 .callout .callout-logo {
   height: 20rem;
+  transition: all 0.15s ease-in-out;
+  cursor: pointer;
+}
+
+.callout-logo:hover {
+  /* height: 21rem; */
+  opacity: 0.8;
 }
 
 .callout .callout-title {
@@ -77,17 +138,30 @@ body {
 
 .callout .callout-subtitle {
   font-size: 1.25rem;
+  padding-bottom: 30px;
+}
+
+#title-wrapper {
+  background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
+  max-width: 600px;
+  /* height: 85vh; */
+  min-height: 400px;
+  max-height: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 40px;
+  /* margin-top: 40px; */
+  margin-bottom: 40px;
 }
 
 .primary {
   width: 100px;
   margin-right: auto;
   margin-left: auto;
-  color: black;
+  color: #0b132b;
   height: 2px;
   opacity: 100%;
 }
-
 
 .callout .callout-scroll {
   position: absolute;
@@ -106,24 +180,24 @@ body {
   border-radius: 100%;
   border: 0.125rem;
   border-style: solid;
-  border-color: #000;
+  border-color: #0b132b;
   cursor: pointer;
   -webkit-transition: all 0.15s ease-in-out;
   transition: all 0.15s ease-in-out;
-  color: #000;
+  color: #0b132b;
 }
 
-@media (min-width: 992px) {
+/* @media (min-width: 992px) {
   .callout-full {
     padding: 0;
     height: 100vh;
     min-height: 35rem;
   }
-}
+} */
 
 /********** /CALLOUT **********/
 
-/* PROGRESS-BOX */
+/********** PROGRESS-BOX **********/
 
 .dot {
   position: absolute;
@@ -131,7 +205,9 @@ body {
   width: 30px;
   height: 30px;
   display: block;
-  background: #e9ecef;
+  background: #f2d492;
+  /* background: #e9ecef; */
+  /* background: #a64253; */
   border-radius: 50%;
   right: -15px;
   top: 10px;
@@ -149,7 +225,8 @@ body {
   position: absolute;
   top: 8px;
   left: 8px;
-  color: white;
+  color: cornsilk;
+  background-color: cornsilk;
 }
 
 .inner-dot i {
@@ -160,6 +237,10 @@ body {
 
 .inner-dot .fa-trophy {
   left: -2px;
+}
+
+#inner-dot-trophy {
+  background-color: transparent;
 }
 
 .progress-game {
@@ -176,16 +257,25 @@ body {
 
 .score {
   margin-top: 20px;
-  color: #0d6efd;
+  color: #1c2541;
+  /* color: #0d6efd; */
 }
 
-/* GAME-BOX */
+.progress {
+  background-color: #f2d492;
+}
+
+.progress-bar {
+  background-color: #a64253;
+}
+
+/********** GAME-BOX **********/
 
 .game-frame {
   background-color: cornsilk;
-  height: 135px;
+  height: 160px;
   position: relative;
-  width: 116px;
+  width: 140px;
   border-radius: 2%;
   display: inline-block;
   margin: 5px 15px;
@@ -199,19 +289,27 @@ body {
 .game-slot,
 .button-game-choice {
   background-size: cover;
-  width: 100px;
-  height: 90px;
+  width: 120px;
+  height: 110px;
   border: none;
   display: inline-block;
   line-height: 100px;
   font-size: 40px;
-  left: 8px;
+  left: 10px;
   top: 8px;
 }
 
 .button-game-choice {
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
+  margin: 5px;
+  transform: all ease-in 0.2s;
+}
+
+.button-game-choice:hover {
+  box-shadow: 2px 2px 5px black;
+
+  opacity: 0.8;
 }
 
 .button-game-choice {
@@ -228,19 +326,62 @@ body {
 
 .game-slot-button {
   font-size: 50px;
-  background-color: black;
+  background-color: #0b132b;
   border: none;
   color: white;
   height: 100%;
   width: 100%;
-  opacity: 80%;
+  opacity: 100%;
+  transition: all 0.2s ease-in;
 }
 
-/* ENDGAME-BOX */
+.game-slot-button:hover {
+  background-color: #a64253;
+  box-shadow: 2px 2px 5px black;
+}
+
+#button-box {
+  padding-bottom: 15px;
+}
+
+/********** ENDGAME-BOX **********/
 
 #form-reward-mail {
   max-width: 400px;
   margin: 15px;
   margin-right: auto;
   margin-left: auto;
+}
+
+/********** SMALL-SCREEN **********/
+
+@media screen and (max-width: 575px) {
+  #progress-box {
+    display: none;
+  }
+
+  #main-game {
+    margin: 15px;
+    max-height: none;
+    height: auto;
+    border-radius: 40px;
+  }
+
+  #form-reward-mail {
+    margin: 15px auto;
+    width: 80%;
+  }
+
+  #information-level-box {
+    display: block;
+  }
+
+  .callout-full {
+    padding-top: 50px;
+  }
+
+  .callout .callout-logo {
+    height: 15rem;
+    padding-top: 30px;
+  }
 }

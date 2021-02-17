@@ -179,20 +179,20 @@ function incrementProgressBar(level) {
     let dot = $(`#dot-${level}`);
 
     activateDot(dot);
-    dot.css("background-color", "#0d6efd");
-    dot.children().css("background-color", "#ffffff").children().remove();
+    /* dot.css("background-color", "#a64253");
+    dot.children().css("background-color", "cornsilk").children().remove(); */
   }, 400);
 }
 
 function activateDot(dot) {
-  dot.css("background-color", "#0d6efd");
-  dot.children().css("background-color", "#ffffff").children().remove();
+  dot.css("background-color", "#a64253");
+  dot.children().css("background-color", "cornsilk").children().remove();
 }
 
 function resetProgressBar() {
   $(".progress-bar-game").css("width", "0%");
-  $(".dot").css("background-color", "#e9ecef");
-  $("#dot-0").css("background-color", "#e9ecef");
+  $(".dot").css("background-color", "#f2d492");
+  $("#dot-0").css("background-color", "#f2d492");
 }
 
 function incrementGlobalScore() {
@@ -203,6 +203,12 @@ function incrementGlobalScore() {
     globalScore = 100;
   }
   $("#score-text").html(globalScore.toFixed(2));
+}
+
+function incrementLevelText() {
+  let actualLevel = parseInt($("#level-text").html());
+  actualLevel++;
+  $("#level-text").html(actualLevel);
 }
 
 /* INFORMATION-SCREENS */
@@ -243,8 +249,8 @@ function setGameScreen() {
 
 function setGoodOptionScreen() {
   $("#information-box")[0].innerHTML = `
-  <h2>Good!</h2></p>
-  `;  
+  <h2>Good!</h2>
+  `;
 }
 
 function setBadOptionScreen() {
@@ -255,15 +261,29 @@ function setBadOptionScreen() {
 
 function setEndScreen() {
   let score = $("#score-text").html();
+  let trophy;
+
+  if (score == 100.0) {
+    trophy = "gold";
+  } else if (score > 30.0) {
+    trophy = "silver";
+  } else {
+    trophy = "bronze";
+  }
+
   $("#endgame-box").removeClass("d-none");
   $("#game-box").addClass("d-none");
 
   $("#information-box").html(`<h2>Thanks for playing!</h2>
-  <p>Your score is: <strong>${score}%</strong><br>Insert an <strong>email address</strong> to share your result!</p>`);
+  <p>Your score is:</p>
+  <h2>${score}%</h2>
+ <img src="assets/images/${trophy}.png" class="reward-trophy"> `);
 
   $("#button-box")[0].innerHTML = `
-    <button id="restart-button" type="button" class="btn btn-primary">Restart</button>
+    <button id="restart-button" type="button" class="btn btn-primary">Play Again</button> <br>
+    <button class="js-scroll-trigger btn btn-primary" id="hard-reset-button" type="button">Title Screen</button>
   `;
+  $("#button-box").removeClass("d-none");
 }
 
 /* EVENT-HANDLERS */
@@ -274,15 +294,47 @@ $("body").on("click", "#start-button", function () {
 
 $("body").on("click", "#restart-button", function () {
   $("#score-text").html("0");
+  $("#level-text").html("1");
   resetProgressBar();
   resetGame();
   newGame(1);
+
+  /* $(".callout").fadeToggle();
+  setTimeout(function () {
+    $("#main-game").fadeToggle();
+  }, 400);
+ */
+});
+
+$("body").on("click", "#hard-reset-button", function () {
+  $("#score-text").html("0");
+  $("#level-text").html("1");
+  resetProgressBar();
+  resetGame();
+  $("#information-box").html(`<h2>Instructions</h2>
+  <p>You have <strong>5 seconds</strong> to memorize the pictures in the photos. If you guess
+      <strong>each</strong>
+      picture you can continue to the next level! There are <strong>six</strong> levels in total!
+  </p>`);
+  $("#button-box").html(`<p>
+                            Press <button id="start-button" type="button" class="btn btn-primary">Start</button> to
+                            begin!
+                        </p>`);
+
+  /* newGame(1); */
+
+  /* $(".callout").fadeToggle();
+  setTimeout(function () {
+    $("#main-game").fadeToggle();
+  }, 400);
+ */
 });
 
 $("body").on("click", "#continue-button", function () {
   let currentLevel = $(".level-active").length;
   resetGame();
   newGame(currentLevel + 1);
+  incrementLevelText();
 });
 
 $("#game-box").on("click", ".game-slot-button", function () {
@@ -318,6 +370,7 @@ $(".button-game-choice").click(function () {
     if (checkAllCorrect(slotCollection)) {
       console.log("tutti i valori sono giusti");
       incrementProgressBar($(".level-active").length);
+      /* incrementLevelText(); */
       currentLevel === 6 ? setEndScreen() : setWinScreen();
     } else {
       console.log("almeno un valore è sbagliato");
