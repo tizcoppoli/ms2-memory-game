@@ -21,13 +21,8 @@
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link
-        href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Comfortaa&family=Fredericka+the+Great&family=Limelight&family=Ribeye&family=Ribeye+Marrow&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Ribeye&display=swap"
         rel="stylesheet">
-
-    <!-- HOVER.CSS -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
-        integrity="sha512-csw0Ma4oXCAgd/d4nTcpoEoz4nYvvnk21a8VA2h2dzhPAvjbUIK6V3si7/g/HehwdunqqW18RwCJKpD7rL67Xg=="
-        crossorigin="anonymous" /> -->
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -44,11 +39,9 @@
 
 <body>
 
-
-    <!---------- MAIN-GAME ---------->
     <div id="game-outer-wrapper">
 
-        <!-- TEST -->
+        <!---------- TITLE-SCREEN ---------->
         <div class="callout callout-full">
             <div class="container h-100">
                 <div class="row h-100 align-items-center" id="title-wrapper">
@@ -67,22 +60,17 @@
                 </div>
             </div>
         </div>
-
-        <!-- /TEST -->
+        <!---------- /TITLE-SCREEN ---------->
 
         <div class="game-inner-wrapper" id="main-game" style="display: none;">
-
-
 
             <!---------- PROGRESS-BOX ---------->
             <div class="text-center" id="progress-box">
                 <div class="container">
                     <div class="row " id="progress-game-level">
-
                         <div class="col-2 position-relative">
                             <div class="dot" id="dot-0">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                             <div class="progress progress-game">
@@ -91,7 +79,6 @@
                             </div>
                             <div class="dot" id="dot-1">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -102,7 +89,6 @@
                             </div>
                             <div class="dot" id="dot-2">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -113,7 +99,6 @@
                             </div>
                             <div class="dot" id="dot-3">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -124,7 +109,6 @@
                             </div>
                             <div class="dot" id="dot-4">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -135,7 +119,6 @@
                             </div>
                             <div class="dot" id="dot-5">
                                 <div class="inner-dot">
-                                    <!-- <i class="fas fa-lock"></i> -->
                                 </div>
                             </div>
                         </div>
@@ -150,7 +133,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="row">
                         <div class="col-12 text-center score d-none">
@@ -161,7 +143,7 @@
             </div>
             <!---------- /PROGRESS-BOX ---------->
 
-            <!-- INFORMATION-BOX -->
+            <!---------- INFORMATION-BOX ---------->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center" id="information-level-box">
@@ -178,7 +160,7 @@
             </div>
             <!---------- /INFORMATION-BOX ---------->
 
-            <!-- ENDGAME-BOX -->
+            <!---------- ENDGAME-BOX ---------->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center d-none" id="endgame-box">
@@ -196,49 +178,42 @@
             </div>
             <!---------- /ENDGAME-BOX ---------->
 
-            <!-- GAME-BOX -->
+            <!---------- GAME-BOX ---------->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center position-relative" id="game-box">
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-0">
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-0"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
                         </div>
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-1">
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-1"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
                         </div>
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-2">
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-2"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
                         </div>
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-3">
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-3"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
                         </div>
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-4">
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-4"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
                         </div>
-
                         <div class="game-frame d-none">
                             <div class="game-slot d-none" id="game-slot-5">
-
                                 <button class="game-slot-button fas fa-question d-none" id="game-slot-button-5"
                                     data-bs-toggle="modal" data-bs-target="#choices-modal"></button>
                             </div>
@@ -246,13 +221,12 @@
                     </div>
                 </div>
             </div>
+            <!---------- /GAME-BOX ---------->
 
-            <!-- BUTTON-BOX -->
-
+            <!---------- BUTTON-BOX ---------->
             <div class="container">
                 <div class="row">
                     <div id="button-box" class="col-12 text-center">
-
                         <p>
                             Press <button id="start-button" type="button" class="btn btn-primary">Start</button> to
                             begin!
@@ -260,12 +234,9 @@
                     </div>
                 </div>
             </div>
+            <!---------- /BUTTON-BOX ---------->
 
-            <!---------- AUDIO-BOX ---------->
-
-
-
-            <!-- MODAL-CHOICES -->
+            <!---------- MODAL-CHOICES ---------->
             <div class="modal fade" id="choices-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog">
@@ -275,39 +246,28 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
-
                             <button class="button-game-choice" id="button-game-choice-0" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-1" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-2" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-3" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-4" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-5" data-bs-dismiss="modal">
                             </button>
-
                             <button class="button-game-choice" id="button-game-choice-6" data-bs-dismiss="modal">
                             </button>
-
-                            <!-- <button class="button-game-choice" id="button-game-choice-7" data-bs-dismiss="modal">
-                            </button>
-
-                            <button class="button-game-choice" id="button-game-choice-8" data-bs-dismiss="modal">
-                            </button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <!---------- /MODAL-CHOICES ---------->
 
+        <!---------- FOOTER ---------->
         <div class="container">
             <div class="row">
                 <div class="col-12 text-center">
@@ -324,6 +284,7 @@
                 </div>
             </div>
         </div>
+        <!---------- /FOOTER ---------->
 
     </div>
 
