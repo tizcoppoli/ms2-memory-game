@@ -148,6 +148,9 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 The deployed site was tested with Lighthouse for performance evaluation and with Responsinator for responsiveness.
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) - [Results](assets/doc/lighthouse.png)
+  
+  <img src="assets/doc/lighthouse.png">
+
 - [Responsinator](http://www.responsinator.com/) - [Results](http://www.responsinator.com/?url=https%3A%2F%2Ftizianocoppoli.github.io%2Fms2-memory-game%2F)
 
 
