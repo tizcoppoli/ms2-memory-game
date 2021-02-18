@@ -16,53 +16,54 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 - Returning visitors (people who already know the game).
 - Frequent visitors (people who like the game and want to test their memory).
 
-- ### User stories
+### User stories
 
-  - #### First Time Visitor Goals
+#### First Time Visitor Goals
 
-    1. As a First Time Visitor, I want to learn how to play quickly.
-      1. Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
-      2. The game start easily and become more challenging after the first level. 
-    
-    2. As a First Time Visitor, I want to understand how long is the game.
-      1. In the instruction pane it is clear that the game has six levels in total.
-      2. In the top part there is a intuitive progress bar that indicates the current level.
-      3. In the mobile version the progress bar is replace with a paragraph stating the current level and the total number of levels.
+1. As a First Time Visitor, I want to learn how to play quickly.
+  1. Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
+  1. The game start easily and become more challenging after the first level.
 
-    3. As a First Time Visitor, I want to try to turn on the music.
-      1. In the lower part there is the audio button to toggle music on/off.
-      2. The user can switch the music on/off anytime during the game or in the title screen.
+1. As a First Time Visitor, I want to understand how long is the game.
+  1. In the instruction pane it is clear that the game has six levels in total.
+  1. In the top part there is a intuitive progress bar that indicates the current level.
+  1. In the mobile version the progress bar is replace with a paragraph stating the current level and the total number of levels.
 
-  - #### Returning Visitor Goals
+1. As a First Time Visitor, I want to try to turn on the music.
+  1. In the lower part there is the audio button to toggle music on/off.
+  1. The user can switch the music on/off anytime during the game or in the title screen.
 
-    1. As a Returning Visitor, I want to improve my score.
-      1. When the user make a mistake or beat level six the game is over and show the user his score from 0 to 100%.
-      2. The user can play again to make a better score.
-      3. If the score is less than 30% the user will get a bronze cup, more than 30% is a silver cup and 100% is a gold cup.
+#### Returning Visitor Goals
 
-    2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-      1. At the end of the game the user can insert an email address in a form to automatically send an email stating his result.
-      2. The user can insert the proper email address to save his result or another to share with other people.
+1. As a Returning Visitor, I want to improve my score.
+1. When the user make a mistake or beat level six the game is over and show the user his score from 0 to 100%.
+1. The user can play again to make a better score.
+1. If the score is less than 30% the user will get a bronze cup, more than 30% is a silver cup and 100% is a gold cup.
 
-    3. As a Returning Visitor, I want to find community links.
-      1. At the bottom of the screen there are the community links to visit easily the social pages.
+1. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+1. At the end of the game the user can insert an email address in a form to automatically send an email stating his result.
+1. The user can insert the proper email address to save his result or another to share with other people.
 
-  - #### Frequent User Goals
-    1. As a Frequent User, I want to periodically test my memory.
-      1. The user can test his memory periodically and see if there are improvements over time.
+1. As a Returning Visitor, I want to find community links.
+1. At the bottom of the screen there are the community links to visit easily the social pages.
 
-    2. As a Frequent User, I want to being inspired by the setting and choose a location for my next trip.
-      1. The game provide a variety of different pictures of real world landmark.
-      2. The user can be inspired by the different places and choose one of those for the next trip.
+#### Frequent User Goals
 
-    3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
-      1. The user can share the website with friend to challenge from the distance and see who is better.
-      2. The user can play with friends also with just one computer in the same place, there's no need to be in different places.
+1. As a Frequent User, I want to periodically test my memory.
+1. The user can test his memory periodically and see if there are improvements over time.
 
+1. As a Frequent User, I want to being inspired by the setting and choose a location for my next trip.
+1. The game provide a variety of different pictures of real world landmark.
+1. The user can be inspired by the different places and choose one of those for the next trip.
+
+1. As a Frequent User, I want to challenge friends to see who has a better visual memory.
+1. The user can share the website with friend to challenge from the distance and see who is better.
+1. The user can play with friends also with just one computer in the same place, there's no need to be in different places.
 
 - ### Design
 
-  - #### Colour Scheme    
+  - #### Colour Scheme
+
     - The palette has been generated with [Coolors](https://coolors.co/)
 
     <h2 align="center"><img src="assets/doc/palette.png"></h2>
@@ -78,7 +79,7 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
   - #### Typography
 
     - "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in a case for any reason the font isn't being imported into the site correctly.
-    
+
     - "Ribeye" is a clean font used for headings.
 
   - #### Imagery
@@ -102,8 +103,8 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 - Three possible rewards
 - Send result via mail
 
-
 ### Features Left to Implement
+
 - More sound effects.
 - Difficult selector.
 
@@ -136,7 +137,8 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 9. [Visual Studio Code:](https://code.visualstudio.com/)
    - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
 10. [EmailJS:](https://www.emailjs.com/)
-   - EmailJS was used to send mails to players with their result.
+
+- EmailJS was used to send mails to players with their result.
 
 ## Testing
 
@@ -148,11 +150,10 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 The deployed site was tested with Lighthouse for performance evaluation and with Responsinator for responsiveness.
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) - [Results](assets/doc/lighthouse.png)
-  
+
   <img src="assets/doc/lighthouse.png">
 
 - [Responsinator](http://www.responsinator.com/) - [Results](http://www.responsinator.com/?url=https%3A%2F%2Ftizianocoppoli.github.io%2Fms2-memory-game%2F)
-
 
 ### Further Testing
 
@@ -160,8 +161,6 @@ The deployed site was tested with Lighthouse for performance evaluation and with
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX, iPad.
 - A large amount of testing was done to ensure that all pages were linking correctly.
 - The emailJS integration has been tested.
-
-
 
 ### Solved Bugs
 
@@ -182,8 +181,6 @@ $("body").on("click", "#start-button", function () {
 }
 ```
 
-
-
 ## Deployment
 
 ### GitHub Pages
@@ -191,7 +188,7 @@ $("body").on("click", "#start-button", function () {
 The project was deployed to GitHub Pages using the following steps...
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/MS1-rock-band)
-2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.  
+2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
