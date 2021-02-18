@@ -21,31 +21,31 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 #### First Time Visitor Goals
 
 1. As a First Time Visitor, I want to learn how to play quickly.
-  1. Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
-  1. The game start easily and become more challenging after the first level.
+   .._ Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
+   .._ The game start easily and become more challenging after the first level.
 
-1. As a First Time Visitor, I want to understand how long is the game.
-  1. In the instruction pane it is clear that the game has six levels in total.
-  1. In the top part there is a intuitive progress bar that indicates the current level.
-  1. In the mobile version the progress bar is replace with a paragraph stating the current level and the total number of levels.
+2. As a First Time Visitor, I want to understand how long is the game.
+   .._ In the instruction pane it is clear that the game has six levels in total.
+   .._ In the top part there is a intuitive progress bar that indicates the current level.
+   ..\* In the mobile version the progress bar is replace with a paragraph stating the current level and the total number of levels.
 
-1. As a First Time Visitor, I want to try to turn on the music.
-  1. In the lower part there is the audio button to toggle music on/off.
-  1. The user can switch the music on/off anytime during the game or in the title screen.
+3. As a First Time Visitor, I want to try to turn on the music.
+   .._ In the lower part there is the audio button to toggle music on/off.
+   .._ The user can switch the music on/off anytime during the game or in the title screen.
 
 #### Returning Visitor Goals
 
 1. As a Returning Visitor, I want to improve my score.
-1. When the user make a mistake or beat level six the game is over and show the user his score from 0 to 100%.
-1. The user can play again to make a better score.
-1. If the score is less than 30% the user will get a bronze cup, more than 30% is a silver cup and 100% is a gold cup.
+   .._ When the user make a mistake or beat level six the game is over and show the user his score from 0 to 100%.
+   .._ The user can play again to make a better score.
+   ..\* If the score is less than 30% the user will get a bronze cup, more than 30% is a silver cup and 100% is a gold cup.
 
-1. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-1. At the end of the game the user can insert an email address in a form to automatically send an email stating his result.
-1. The user can insert the proper email address to save his result or another to share with other people.
+2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+   .._ At the end of the game the user can insert an email address in a form to automatically send an email stating his result.
+   .._ The user can insert the proper email address to save his result or another to share with other people.
 
-1. As a Returning Visitor, I want to find community links.
-1. At the bottom of the screen there are the community links to visit easily the social pages.
+3. As a Returning Visitor, I want to find community links.
+   ..\* At the bottom of the screen there are the community links to visit easily the social pages.
 
 #### Frequent User Goals
 
