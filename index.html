@@ -25,9 +25,9 @@
         rel="stylesheet">
 
     <!-- HOVER.CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/hover.css/2.3.1/css/hover-min.css"
         integrity="sha512-csw0Ma4oXCAgd/d4nTcpoEoz4nYvvnk21a8VA2h2dzhPAvjbUIK6V3si7/g/HehwdunqqW18RwCJKpD7rL67Xg=="
-        crossorigin="anonymous" />
+        crossorigin="anonymous" /> -->
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
@@ -44,26 +44,35 @@
 
 <body>
 
-    <!---------- CALLOUT ---------->
-    <header class="callout callout-full vh-100">
-        <div class="container h-100">
-            <div class="row h-100 align-items-center" id="title-wrapper">
-                <div class="col text-center">
-                    <div class="callout-title text-uppercase">Travel Memory</div>                    
-                    <hr class="primary small">
-                    <div class="callout-subtitle">Click the camera to begin the journey!</div>
-                    <a class="js-scroll-trigger">
-                        <img class="callout-logo" src="assets/images/logo5.png" alt="">
-                    </a>
-                </div>
-            </div>
-        </div>        
-    </header>
-    <!---------- /CALLOUT ---------->
 
     <!---------- MAIN-GAME ---------->
     <div id="game-outer-wrapper">
+
+        <!-- TEST -->
+        <div class="callout callout-full">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center" id="title-wrapper">
+                    <div class="col-12 text-center">
+                        <div class="callout-title text-uppercase">
+                            Travel Memory
+                        </div>
+                        <hr class="callout-line">
+                        <div class="callout-subtitle">
+                            Click the camera to begin the journey!
+                        </div>
+                        <a class="js-scroll-trigger">
+                            <img class="callout-logo" src="assets/images/logo5.png" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- /TEST -->
+
         <div class="game-inner-wrapper" id="main-game" style="display: none;">
+
+
 
             <!---------- PROGRESS-BOX ---------->
             <div class="text-center" id="progress-box">
@@ -174,8 +183,9 @@
                 <div class="row">
                     <div class="col-12 text-center d-none" id="endgame-box">
                         <form id="form-reward" onsubmit="return sendMail(this);">
-                            <div class="mb-3">
-                                 <label for="recipient-name" class="col-form-label">Insert an <strong>email address</strong> to share your result!</label> 
+                            <div>
+                                <label for="recipient-name" class="col-form-label">Insert an <strong>email
+                                        address</strong> to share your result!</label>
                                 <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress"
                                     placeholder="email" required>
                                 <button type="submit" class="btn btn-primary" id="form-button">Send</button>
@@ -242,6 +252,7 @@
             <div class="container">
                 <div class="row">
                     <div id="button-box" class="col-12 text-center">
+
                         <p>
                             Press <button id="start-button" type="button" class="btn btn-primary">Start</button> to
                             begin!
@@ -249,6 +260,10 @@
                     </div>
                 </div>
             </div>
+
+            <!---------- AUDIO-BOX ---------->
+            
+
 
             <!-- MODAL-CHOICES -->
             <div class="modal fade" id="choices-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -292,6 +307,21 @@
                 </div>
             </div>
         </div>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <i class="fab fa-facebook footer-icon" id="facebook-icon"></i>
+                    <i class="fab fa-instagram footer-icon" id="instagram-icon"></i>
+                    <i class="fab fa-twitter footer-icon" id="twitter-icon"></i>
+                    <i class="fas fa-volume-mute volume-inactive footer-icon" id="music-icon"></i>
+                    <audio id="bg-music" loop>
+                        <source src="assets/audio/music-1.mp3" type="audio/mp3">
+                    </audio>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- BOOTSTRAP JS-->

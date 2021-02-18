@@ -1,21 +1,8 @@
 body {
-  /* background-image:url(../images/bg-pattern.png), linear-gradient(45deg, #f29559, #f2d492); */
-  /* background-image: url(../images/bg-pattern.png); */
-  /* font-family: "Comfortaa", sans-serif; */
-  /* background-attachment: fixed; */
-
-  /* background-image: url(../images/bg-pattern2.png), linear-gradient(
-    45deg
-    , #f29559, #f2d492); */
   background: #f29559;
   background-image: url(../images/bg-pattern3.png);
-  /* background: #f29559; */
-  /* background-image: url(../images/bg-pattern.png); */
   font-family: "Comfortaa", sans-serif;
-  /* background-attachment: fixed; */
   background-size: 400px;
-  /* background: center; */
-  /* background-size: contain 200px; */
 }
 
 p {
@@ -39,7 +26,7 @@ p {
   padding-bottom: 20px;
 }
 
-#main-game {
+#game-outer-wrapper {
   background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
   max-width: 600px;
   /* height: 85vh; */
@@ -50,6 +37,7 @@ p {
   border-radius: 40px;
   margin-top: 40px;
   margin-bottom: 40px;
+  position: relative;
 }
 
 /********** INFORMATION-BOX **********/
@@ -85,10 +73,6 @@ p {
   color: #a64253;
 }
 
-/* button:focus{
-  outline: none;
-} */
-
 #start-button:focus,
 #continue-button:focus,
 #restart-button:focus,
@@ -104,7 +88,7 @@ p {
 }
 
 .reward-trophy {
-  height: 170px;
+  height: 150px;
   margin: 15px;
 }
 
@@ -141,25 +125,11 @@ p {
   padding-bottom: 30px;
 }
 
-#title-wrapper {
-  background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
-  max-width: 600px;
-  /* height: 85vh; */
-  min-height: 400px;
-  max-height: 550px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 40px;
-  /* margin-top: 40px; */
-  margin-bottom: 40px;
-}
-
-.primary {
+.callout-line {
   width: 100px;
   margin-right: auto;
   margin-left: auto;
   color: #0b132b;
-  height: 2px;
   opacity: 100%;
 }
 
@@ -186,14 +156,6 @@ p {
   transition: all 0.15s ease-in-out;
   color: #0b132b;
 }
-
-/* @media (min-width: 992px) {
-  .callout-full {
-    padding: 0;
-    height: 100vh;
-    min-height: 35rem;
-  }
-} */
 
 /********** /CALLOUT **********/
 
@@ -304,16 +266,16 @@ p {
   width: 120px;
   margin: 5px;
   transform: all ease-in 0.2s;
+  border-radius: 50%;
 }
 
 .button-game-choice:hover {
   box-shadow: 2px 2px 5px black;
-
   opacity: 0.8;
 }
 
-.button-game-choice {
-  border-radius: 50%;
+.button-game-choice:focus {
+  outline: none;
 }
 
 .correct-answer {
@@ -343,6 +305,39 @@ p {
 #button-box {
   padding-bottom: 15px;
 }
+
+.footer-icon {
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  position: absolute;
+}
+
+.footer-icon:hover {
+  color: #a64253;
+}
+
+#music-icon {
+  right: 20px;
+  bottom: 15px;
+}
+
+#facebook-icon {
+bottom: 15px;
+left: 20px;
+}
+
+#instagram-icon {
+bottom: 15px;
+left: 60px;
+}
+
+#twitter-icon {
+  bottom: 15px;
+  left: 100px;
+}
+
 
 /********** ENDGAME-BOX **********/
 

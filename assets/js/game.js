@@ -309,6 +309,8 @@ $("body").on("click", "#restart-button", function () {
 $("body").on("click", "#hard-reset-button", function () {
   $("#score-text").html("0");
   $("#level-text").html("1");
+  $("#music-icon").removeClass("fa-volume-up").removeClass("volume-active").addClass("volume-inactive").addClass("fa-volume-mute");
+  $("#bg-music")[0].pause();
   resetProgressBar();
   resetGame();
   $("#information-box").html(`<h2>Instructions</h2>
