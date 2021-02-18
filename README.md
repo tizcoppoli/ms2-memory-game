@@ -10,11 +10,21 @@ This is the Travel Memory website. It is designed to be responsible and accessib
 
 ### Project Goals
 
-The site's primary goal is to entertain the visitors and inspire them visiting multiple locations around the globe by playing a challenging memory game. The site has three target audience:
+The site's primary goal is to entertain the visitors and inspire them visiting multiple locations around the globe by playing a challenging memory game. It could be insered in a travel agency website to drive more traffic as well. The site has three target audience:
 
 - First time visitors (casual players).
 - Returning visitors (people who already know the game).
 - Frequent visitors (people who like the game and want to test their memory).
+
+### Game Rules
+
+ - There are six levels in total
+ - Each level starts with a sequence of world landmarks to memorize
+ - The difficult is progressive, level one start with just one picture, level two with two pictures ecc...
+ - The user has a few seconds to memorize the sequence
+ - The user needs to match all the elements in order to procede with the next level
+ - If the user make a mistake the game is over
+ - The score is calculated from 0% (game over at level one) to 100% (all answers are correct in level six)
 
 ### User stories
 
@@ -60,32 +70,48 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
   * The user can share the website with friend to challenge from the distance and see who is better.
   * The user can play with friends also with just one computer in the same place, there's no need to be in different places.
 
-- ### Design
+### UX - Five Planes
 
-  - #### Colour Scheme
+  1. Strategy
+    * The primary goal is to entertain the user with a quick memory game.
+  
+  2. Scope
+    * Everithing should be easy to understand and the game should be quick to learn. There aren't any navigation elements but the user should be able to activate the music anytime, replay the game and share the result with others.
 
-    - The palette has been generated with [Coolors](https://coolors.co/)
+  3. Structure
+    * There is a title screen with a callout image to play the game. There is no need of a navbar since the only purpose is to play the game. After the title screen there is there are the instructions to teach the user how to play. Then the game start with level 1 and move further to level six. If the user make a mistake or win each levels, the ending screen appears. In the ending screen there is the reward, the score and the mail form to share the result. 
 
-    <h2 align="center"><img src="assets/doc/palette.png"></h2>
+  4. Skeleton
+    * The game wrapper is the main div containing the title screen and the game screen. The game screen is composed by a progress box, an information box, a game box and a button box. All the elements are generated in these boxes at runtime. Check the wireframe for more details.
 
-    - English Red: #a64253
-    - Deep Champagne: #f2d492
-    - Medium Slate Blue: #7f7eff
-    - Sky Blue Crayola: #76e5fc
-    - Atomic Tangerine: #f29559
-    - Black: #000000
-    - White: #ffffff
+  5. Surface
+    * The game is in flat design to look modern, easy and fresh. The theme is travel so the title screen feature a camera and each elements to memorize in the game are picture of world landmarks. Check the design for more details.
 
-  - #### Typography
+### Design
+
+#### Colour Scheme
+
+- The palette has been generated with [Coolors](https://coolors.co/)
+
+<img src="assets/doc/palette.png">
+
+  - English Red: #a64253
+  - Deep Champagne: #f2d492
+  - Medium Slate Blue: #7f7eff
+  - Sky Blue Crayola: #76e5fc
+  - Atomic Tangerine: #f29559
+  - Black: #000000
+  - White: #ffffff
+
+  #### Typography
 
     - "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in a case for any reason the font isn't being imported into the site correctly.
-
     - "Ribeye" is a clean font used for headings.
 
-  - #### Imagery
+  #### Imagery
     - Imagery is important. The game is in flat design. The images are without borders and the image under the title is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
 
-* ### Wireframes
+  ### Wireframes
 
   - Home Page Wireframe - [View](assets/doc/home.pdf)
   - Tablet Wireframe - [View](assets/doc/tablet.pdf)
@@ -105,8 +131,8 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 
 ### Features Left to Implement
 
-- More sound effects.
-- Difficult selector.
+- More sound effects
+- Difficult selector
 
 ## Technologies Used
 
@@ -137,8 +163,7 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 9. [Visual Studio Code:](https://code.visualstudio.com/)
    - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
 10. [EmailJS:](https://www.emailjs.com/)
-
-- EmailJS was used to send mails to players with their result.
+   - EmailJS was used to send mails to players with their result.
 
 ## Testing
 
@@ -187,24 +212,24 @@ $("body").on("click", "#start-button", function () {
 
 The project was deployed to GitHub Pages using the following steps...
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/MS1-rock-band)
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/ms2-memory-game/)
 2. At the top of the Repository (not top of page), locate the "Settings" Button on the menu.
 3. Scroll down the Settings page until you locate the "GitHub Pages" Section.
 4. Under "Source", click the dropdown called "None" and select "Master Branch".
 5. The page will automatically refresh.
-6. Scroll back down through the page to locate the now published site [link](https://tizianocoppoli.github.io/MS1-rock-band/) in the "GitHub Pages" section.
+6. Scroll back down through the page to locate the now published site [link](https://tizianocoppoli.github.io/ms2-memory-game/) in the "GitHub Pages" section.
 
 ### Forking the GitHub Repository
 
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/MS1-rock-band)
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/ms2-memory-game/)
 2. At the top of the Repository (not top of page) just above the "Settings" Button on the menu, locate the "Fork" Button.
 3. You should now have a copy of the original repository in your GitHub account.
 
 ### Making a Local Clone
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/MS1-rock-band)
+1. Log in to GitHub and locate the [GitHub Repository](https://github.com/tizianocoppoli/ms2-memory-game/)
 2. Under the repository name, click "Clone or download".
 3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
 4. Open Git Bash
