@@ -23,7 +23,7 @@ p {
 
 #game-box {
   padding-top: 10px;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
 }
 
 #game-outer-wrapper {
@@ -312,6 +312,8 @@ p {
   cursor: pointer;
   transition: all 0.15s ease-in-out;
   position: absolute;
+  margin-top: 5px;
+  margin-bottom:5px;
 }
 
 .footer-icon:hover {
@@ -378,5 +380,10 @@ left: 60px;
   .callout .callout-logo {
     height: 15rem;
     padding-top: 30px;
+  }
+
+  #game-outer-wrapper {
+    margin-right: 10px;
+    margin-left: 10px;
   }
 }

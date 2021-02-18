@@ -95,36 +95,17 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 - Responsive on all device sizes
 - Interactive audio control
 - Six levels to play
-- Buttons and modal used to choose game options
+- Button hover animations
+- Modal used to choose game options
 - Progress bar
 - Score system
 - Three possible rewards
 - Send result via mail
 
-### Navbar
-- The navbar has a little animation on loading. In small screens is collapsed.
-
-### Callout
-- The callout section features a hero image, a logo visible only on large screens, and a subscribe button. If the user clicks on the button, a pop-up form appears to leave the email address.
-
-### Gigs
-- The gigs section features the next concert dates and the buttons to discover more and buy the tickets in advance. The layout is different for small screens. At the bottom of the section, there is a button to book a private gig.
-
-### Music
-- The music section features a video (only for medium and large screens) and three albums. The user can click on the buttons under the album cover, so buy or preorder the album. When the user hovers with the mouse on the album cover on large screens, there is an animation with a record. At the bottom of this section, there is a button to check the music on iTunes.
-
-### About
-- The about section features the band members with an image, label, and description. The layout is different for small, medium, and large screens.
-
-### Merch
-- The merch section features four items the user can buy. If the user hovers with the mouse on the item, a button to purchase and a description will show. The layout is different for small screens. At the bottom of the section, there is a button to check more items.
-
-### Contact
-- The contact section features three links to send an email for info, booking, and press. Under the links, there is a contact form with an email input and a textarea. Under the contact form, there are social links.
 
 ### Features Left to Implement
-- More contact forms in pop-ups to contact the band without going to the end of the page.
-- A carousel of pictures from previous concerts.
+- More sound effects.
+- Difficult selector.
 
 ## Technologies Used
 
@@ -167,89 +148,38 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 The deployed site was tested with Lighthouse for performance evaluation and with Responsinator for responsiveness.
 
 - [Lighthouse](https://developers.google.com/web/tools/lighthouse) - [Results](assets/doc/lighthouse.png)
-- [Responsinator](http://www.responsinator.com/) - [Results](http://www.responsinator.com/?url=https%3A%2F%2Ftizianocoppoli.github.io%2Fms1-rock-band%2F)
+- [Responsinator](http://www.responsinator.com/) - [Results](http://www.responsinator.com/?url=https%3A%2F%2Ftizianocoppoli.github.io%2Fms2-memory-game%2F)
 
-
-### Testing User Stories from User Experience (UX) Section
-
-- #### First Time Visitor Goals
-
-  1. As a First Time Visitor, I want to easily understand the genre of the music.
-
-     1. Upon entering the site, users are automatically greeted with a clean and easily readable navigation bar to go to their choice section. Underneath, there is a Hero Image with the text "Unforgettable Rock Music".
-     2. The main points are made immediately with the hero image.
-     3. The user can scroll down to discover more.
-
-  2. 2. As a First Time Visitor, I want to be able to easily navigate throughout the site to find the closest concert date.
-
-     1. The site has been designed to be fluid and never to entrap the user. At the top, there is a clean navigation bar. Each link describes the page they will end up at clearly.
-     2. The navbar doesn't hide so that the user can go to another section at any moment.
-     3. After the hero image, there is the gig section where the user can find the next dates.
-
-  3. As a First Time Visitor, I want to see a video of the band to understand if I like the music.
-
-     1. Once the new visitor has viewed the callout and the concert dates, they can play an embedded video.  
-
-- #### Returning Visitor Goals
-
-  1. As a Returning Visitor, I want to know more about the album released.
-
-     1. In the music section, the user can see the album released.
-     2. There is the possibility to buy the previous albums and to pre-order the next one.
-
-  2. As a Returning Visitor, I want to find the best way to get in contact with the band with any questions I may have.
-
-     1. The navigation bar highlights the "Contact" Page.
-     2. The user is provided with the email addresses for info, bookings, and press.
-     3. Alternatively, the user can directly fill out the form on the page.
-     4. Whichever link they click, it will be open up in a new tab to ensure the user can easily get back to the website.
-     5. The email button is set up to automatically open up your email app and autofill their email address in the "To" section.
-
-  3. As a Returning Visitor, I want to find community links.
-     1. The YouTube, Facebook, Soundcloud, Instagram, Spotify, and Twitter pages can be found at the footer and open a new tab.    
-
-- #### Frequent User Goals
-
-  1. As a Frequent User, I want to check to see if there are any new release.
-
-     1. The user would already be comfortable with the website layout and can easily go to the music section to check the most recent album.
-
-  2. As a Frequent User, I want to check to see if there are any new items to shop in the store section.
-
-     1. The user would already be comfortable with the website layout and can easily go to the shop section to see the new items to buy.
-
-  3. As a Frequent User, I want to sign up to the Newsletter so that I am emailed any new concert date.
-
-     1. In the callout, under the headline, the user can see the "Subscribe" button and is prompted to Enter their email address.
-     2. There is a "Submit" button to the right-hand side of the input field, located close to the field and can easily be distinguished.
 
 ### Further Testing
 
 - The Website was tested on Google Chrome, Firefox and Microsoft Edge.
 - The website was viewed on a variety of devices such as Desktop, Laptop, iPhone7, iPhone 8 & iPhoneX, iPad.
 - A large amount of testing was done to ensure that all pages were linking correctly.
-- Band members were asked to review the site to point out any bugs and/or user experience issues.
+- The emailJS integration has been tested.
 
-### Known Bugs
 
-- The site doesn't fully support screen sizes less than 320px.
 
 ### Solved Bugs
 
-- For small screen size (375px) there was an extra padding by default in the bootstrap row solved with custom css:
+- It wasn't possible to use a event handler with jquery to a appened element. Solved using on:
+
 ```
-.row > * {
-  padding-right: 0px;
-  padding-left: 0px;
+$("body").on("click", "#start-button", function () {
+  newGame(1);
+});
+```
+
+- Can't align some elements in the middle, solved with CSS:
+
+```
+#element {
+    margin-right: auto;
+    margin-left: auto;
 }
 ```
 
-- The logo doesn't look good in rotated small devices, solved by hiding in small and medium screens:
-```
-<div class="logo-holder d-none d-lg-block">
-                                <img src="assets/images/logo/logo-2.png" alt="logo">
-                            </div>
-```
+
 
 ## Deployment
 
