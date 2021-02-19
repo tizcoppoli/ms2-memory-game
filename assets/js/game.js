@@ -39,8 +39,7 @@ function generateRandomSequence(numberOfElements, arrayOfPossibilities) {
   for (let i = 0; i < numberOfElements; i++) {
     let randomIndex = Math.floor(Math.random() * possibilities.length);
     randomSequence[i] = possibilities.splice(randomIndex, 1)[0];
-  }
-  console.log("The sequence to match is: " + randomSequence);
+  }  
   return randomSequence;
 }
 
