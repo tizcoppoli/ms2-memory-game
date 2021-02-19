@@ -113,9 +113,9 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 
   ### Wireframes
 
-  - Home Page Wireframe - [View](assets/doc/home.pdf)
+  - Desktop Wireframe - [View](assets/doc/desktop.pdf)
   - Tablet Wireframe - [View](assets/doc/tablet.pdf)
-  - Mobile Wireframe - [View](assets/doc/mobile.png)
+  - Mobile Wireframe - [View](assets/doc/mobile.pdf)
 
 ## Features
 
