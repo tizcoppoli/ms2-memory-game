@@ -171,6 +171,7 @@ The W3C Markup Validator and W3C CSS Validator Services were used to validate ev
 
 - [W3C Markup Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/doc/html-valid.png)
 - [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input) - [Results](assets/doc/css-valid.png)
+- [Esprima JS Validator](https://esprima.org) - [Results](assets/doc/js-valid.png)
 
 The deployed site was tested with Lighthouse for performance evaluation and with Responsinator for responsiveness.
 

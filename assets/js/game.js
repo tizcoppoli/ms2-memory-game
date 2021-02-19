@@ -1,4 +1,5 @@
-/* ogni slot è un oggetto a cui vengono date delle proprietà */
+/********** MAIN-GAME-FUNCTIONS **********/
+
 function newGame(level) {
   let slotCollection = $(".game-slot");
   let choiceCollection = $(".button-game-choice");
@@ -12,7 +13,6 @@ function newGame(level) {
     "france",
     "italy",
   ];
-
   initializeGameObjects(slotCollection);
   setHiddenValues(
     generateRandomSequence(level, arrayOfPossibilities),
@@ -25,49 +25,14 @@ function newGame(level) {
   setTimer(timeLeft, coverGameSlots);
 }
 
-/* rende invisibili gli oggetti del livello corrente e ripristina le classi originali*/
-function resetGame() {
-  $(".game-frame").addClass("d-none");
-  $("#game-box").removeClass("d-none");
-  let slotActiveCollection = $(".level-active");
-  slotActiveCollection.addClass("d-none");
-  slotActiveCollection.removeClass("level-active");
-  $("#endgame-box").addClass("d-none");
-
-  $(".slot-active").removeClass("slot-active");
-  $(".game-slot-button").addClass("d-none");
-  $(".fas.fa-check.correct-answer")
-    .removeClass("fas")
-    .removeClass("fa-check")
-    .removeClass("correct-answer");
-  $(".fas.fa-times.wrong-answer")
-    .removeClass("fas")
-    .removeClass("fa-times")
-    .removeClass("wrong-answer");
-}
-
-/* rende visibili gli oggetti del livello corrente e aggiunge delle classi*/
-function initializeGameArea(level, slotCollection) {
-  for (let i = 0; i < level; i++) {
-    slotCollection[i].parentElement.classList.remove("d-none");
-    slotCollection[i].classList.remove("d-none");
-    slotCollection[i].classList.add("level-active");
-  }
-  activateDot($("#dot-0"));
-}
-
-/*dichiara le proprietà delle scelte e le inizializza */
-function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
-  for (let i = 0; i < choiceCollection.length; i++) {
-    choiceCollection[i].storedValue = arrayOfPossibilities[i];
-    
-    choiceCollection[
-      i
-    ].style.backgroundImage = `url(assets/images/${choiceCollection[i].storedValue}.png)`;
+function initializeGameObjects(slotCollection) {
+  for (let i = 0; i < slotCollection.length; i++) {
+    slotCollection[i].isCorrect = undefined;
+    slotCollection[i].givenValue = undefined;
+    slotCollection[i].hiddenValue = undefined;
   }
 }
 
-/* genera una sequenza random */
 function generateRandomSequence(numberOfElements, arrayOfPossibilities) {
   let randomSequence = [];
   let possibilities = cloneArray(arrayOfPossibilities);
@@ -79,7 +44,49 @@ function generateRandomSequence(numberOfElements, arrayOfPossibilities) {
   return randomSequence;
 }
 
-/* restituisce una copia dell'array originale */
+function setHiddenValues(randomSequence, slotCollection) {
+  for (let i = 0; i < randomSequence.length; i++) {
+    slotCollection[i].hiddenValue = randomSequence[i];
+    slotCollection[
+      i
+    ].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
+  }
+}
+
+function initializeGameArea(level, slotCollection) {
+  for (let i = 0; i < level; i++) {
+    slotCollection[i].parentElement.classList.remove("d-none");
+    slotCollection[i].classList.remove("d-none");
+    slotCollection[i].classList.add("level-active");
+  }
+  activateDot($("#dot-0"));
+}
+
+function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
+  for (let i = 0; i < choiceCollection.length; i++) {
+    choiceCollection[i].storedValue = arrayOfPossibilities[i];
+    choiceCollection[i].style.backgroundImage = `
+    url(assets/images/${choiceCollection[i].storedValue}.png)
+    `;
+  }
+}
+
+function setTimer(timeLeft, functionAfterTimer) {
+  let timer = setInterval(function () {
+    timeLeft--;
+    updateWaitScreen(timeLeft);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      functionAfterTimer($(".game-slot-button"));
+    }
+  }, 1000);
+}
+
+function coverGameSlots(gameButtonCollection) {
+  gameButtonCollection.removeClass("d-none");
+  setGameScreen();
+}
+
 function cloneArray(arrayToClone) {
   let clonedArray = [];
   for (let i = 0; i < arrayToClone.length; i++) {
@@ -88,34 +95,20 @@ function cloneArray(arrayToClone) {
   return clonedArray;
 }
 
-/* setta i valori all'interno degli oggetti */
-function setHiddenValues(randomSequence, slotCollection) {
-  for (let i = 0; i < randomSequence.length; i++) {
-    slotCollection[i].hiddenValue = randomSequence[i];
-    slotCollection[
-      i
-    ].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
-    
-  }
+function hideButtonBox(buttonBox) {
+  buttonBox.addClass("d-none");
 }
 
-function initializeGameObjects(slotCollection) {
-  for (let i = 0; i < slotCollection.length; i++) {
-    slotCollection[i].isCorrect = undefined;
-    slotCollection[i].givenValue = undefined;
-    slotCollection[i].hiddenValue = undefined;
-  }
-}
+/********** /MAIN-GAME-FUNCTIONS **********/
 
-/* controlla se il valore nascosto e il valore dato corrispondono */
+/********** CHECK-RESULT-FUNCTIONS **********/
+
 function checkValue(gameSlot) {
   if (gameSlot.hiddenValue == gameSlot.givenValue) {
     gameSlot.isCorrect = true;
-
     return true;
   } else {
     gameSlot.isCorrect = false;
-
     return false;
   }
 }
@@ -126,7 +119,6 @@ function checkAllFilled(slotCollection) {
       return false;
     }
   }
-
   return true;
 }
 
@@ -139,39 +131,15 @@ function checkAllCorrect(slotCollection) {
   return true;
 }
 
-/* imposta il conto alla rovescia per memorizzare la sequenza*/
-function setTimer(timeLeft, functionAfterTimer) {
-  let timer = setInterval(function () {
-    timeLeft--;
-    updateWaitScreen(timeLeft);
+/********** /CHECK-RESULT-FUNCTIONS **********/
 
-    if (timeLeft <= 0) {
-      clearInterval(timer);
-
-      functionAfterTimer($(".game-slot-button"));
-    }
-  }, 1000);
-}
-
-function hideButtonBox(buttonBox) {
-  buttonBox.addClass("d-none");
-}
-
-/* rende visibili i bottoni di gioco */
-function coverGameSlots(gameButtonCollection) {
-  gameButtonCollection.removeClass("d-none");
-  setGameScreen();
-}
-
-/* PROGRESS-SCORE */
+/********** PROGRESS-BAR-SCORE-FUNCTIONS  **********/
 
 function incrementProgressBar(level) {
-  $(`#lv-${level}`).attr("aria-valuenow",100).css("width", "100%");
+  $(`#lv-${level}`).attr("aria-valuenow", 100).css("width", "100%");
   setTimeout(function () {
     let dot = $(`#dot-${level}`);
-
     activateDot(dot);
-    
   }, 400);
 }
 
@@ -180,16 +148,9 @@ function activateDot(dot) {
   dot.children().css("background-color", "cornsilk").children().remove();
 }
 
-function resetProgressBar() {
-  $(".progress-bar-game").attr("aria-valuenow",0).css("width", "0%");
-  $(".dot").css("background-color", "#f2d492");
-  $("#dot-0").css("background-color", "#f2d492");
-}
-
 function incrementGlobalScore() {
   let globalScore = parseFloat($("#score-text").html());
   globalScore += 4.76;
-  /* $(".level-active").length === 6 ? (globalScore = 100) : (globalScore += 4.76); */
   if (globalScore > 99) {
     globalScore = 100;
   }
@@ -202,12 +163,43 @@ function incrementLevelText() {
   $("#level-text").html(actualLevel);
 }
 
-/* INFORMATION-SCREENS */
+/********** /PROGRESS-BAR-SCORE-FUNCTIONS  **********/
+
+/********** RESET-GAME-FUNCTIONS **********/
+
+function resetGame() {
+  $(".game-frame").addClass("d-none");
+  $("#game-box").removeClass("d-none");
+  let slotActiveCollection = $(".level-active");
+  slotActiveCollection.addClass("d-none");
+  slotActiveCollection.removeClass("level-active");
+  $("#endgame-box").addClass("d-none");
+  $(".slot-active").removeClass("slot-active");
+  $(".game-slot-button").addClass("d-none");
+  $(".fas.fa-check.correct-answer")
+    .removeClass("fas")
+    .removeClass("fa-check")
+    .removeClass("correct-answer");
+  $(".fas.fa-times.wrong-answer")
+    .removeClass("fas")
+    .removeClass("fa-times")
+    .removeClass("wrong-answer");
+}
+
+function resetProgressBar() {
+  $(".progress-bar-game").attr("aria-valuenow", 0).css("width", "0%");
+  $(".dot").css("background-color", "#f2d492");
+  $("#dot-0").css("background-color", "#f2d492");
+}
+
+/********** /RESET-GAME-FUNCTIONS **********/
+
+/********** SET-SCREEN-FUNCTIONS **********/
 
 function setWinScreen() {
   $("#button-box").removeClass("d-none");
   $("#information-box")[0].innerHTML = `<h2>Correct!</h2>`;
-  /* $("#button-box")[0].innerHTML = ``; */
+
   $("#button-box")[0].innerHTML = `
   <p>Click <button id="continue-button" type="button" class="btn btn-primary d-inline-block">Continue</button> for the next level.</p>
   `;
@@ -264,12 +256,10 @@ function setEndScreen() {
 
   $("#endgame-box").removeClass("d-none");
   $("#game-box").addClass("d-none");
-
   $("#information-box").html(`<h2>Thanks for playing!</h2>
   <p>Your score is:</p>
   <h2>${score}%</h2>
  <img src="assets/images/${trophy}.png" class="reward-trophy" alt="trophy"> `);
-
   $("#button-box")[0].innerHTML = `
     <button id="restart-button" type="button" class="btn btn-primary">Play Again</button> <br>
     <button class="fade-trigger btn btn-primary" id="hard-reset-button" type="button">Title Screen</button>
@@ -277,7 +267,9 @@ function setEndScreen() {
   $("#button-box").removeClass("d-none");
 }
 
-/* EVENT-HANDLERS */
+/********** /SET-SCREEN-FUNCTIONS **********/
+
+/********** EVENT-HANDLERS **********/
 
 $("body").on("click", "#start-button", function () {
   newGame(1);
@@ -303,15 +295,16 @@ $("body").on("click", "#hard-reset-button", function () {
     $("#bg-music")[0].pause();
     resetProgressBar();
     resetGame();
-    $("#information-box").html(`<h2>Instructions</h2>
-  <p>You have <strong>7 seconds</strong> to memorize the pictures in the photos. If you guess
-      <strong>each</strong>
-      picture you can continue to the next level! There are <strong>six</strong> levels in total!
-  </p>`);
+    $("#information-box").html(`
+    <h2>Instructions</h2>
+    <p>You have <strong>7 seconds</strong> to memorize the pictures in the photos. If you guess
+    <strong> each </strong>
+    picture you can continue to the next level! There are <strong>six</strong> levels in total!
+    </p>`);
     $("#button-box").html(`<p>
                             Press <button id="start-button" type="button" class="btn btn-primary">Start</button> to
                             begin!
-                        </p>`);
+                           </p>`);
   }, 400);
 });
 
@@ -330,7 +323,7 @@ $("#game-box").on("click", ".game-slot-button", function () {
 
 $(".button-game-choice").click(function () {
   let slotToCheck = $(".slot-active")[0];
-  /* let slotIcon = $(".slot-active i"); */
+
   let slotButton = $(".slot-active button");
   let slotCollection = $(".level-active");
   let currentLevel = slotCollection.length;
@@ -351,7 +344,7 @@ $(".button-game-choice").click(function () {
   if (checkAllFilled(slotCollection)) {
     if (checkAllCorrect(slotCollection)) {
       incrementProgressBar($(".level-active").length);
-      /* incrementLevelText(); */
+
       currentLevel === 6 ? setEndScreen() : setWinScreen();
     } else {
       setLoseScreen();
