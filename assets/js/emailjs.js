@@ -1,3 +1,5 @@
+/********** EMAILJS-INTEGRATION **********/
+
 (function () {
   emailjs.init("user_A5MWxehUDlslEy00CCF6R");
 })();

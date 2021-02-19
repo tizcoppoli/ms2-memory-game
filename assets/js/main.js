@@ -1,3 +1,5 @@
+/********** EVENT-HANDLERS **********/
+
 $("body").on("click", ".fade-trigger", function () {
   if (!$("#main-game").hasClass("screen-active")) {
     $(".callout").fadeToggle();
