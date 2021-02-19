@@ -20,16 +20,14 @@
 
     <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Ribeye&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Ribeye&display=swap" rel="stylesheet">
 
     <!-- CUSTOM CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
 
     <!-- EMAILJS -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
-    <script type="text/javascript">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+    <script>
         (function () {
             emailjs.init("user_A5MWxehUDlslEy00CCF6R");
         })();
@@ -41,7 +39,7 @@
 
     <div id="game-outer-wrapper">
 
-        <!---------- TITLE-SCREEN ---------->
+        <!-- TITLE-SCREEN -->
         <div class="callout callout-full">
             <div class="container h-100">
                 <div class="row h-100 align-items-center" id="title-wrapper">
@@ -52,17 +50,17 @@
                         <hr class="callout-line">
                         <div class="callout-subtitle">
                             Click the camera to begin the journey!
-                        </div>                        
-                            <img class="callout-logo js-scroll-trigger" src="assets/images/logo5.png" alt="">                        
+                        </div>
+                        <img class="callout-logo fade-trigger" src="assets/images/logo.png" alt="camera">
                     </div>
                 </div>
             </div>
         </div>
-        <!---------- /TITLE-SCREEN ---------->
+        <!-- /TITLE-SCREEN -->
 
         <div class="game-inner-wrapper" id="main-game" style="display: none;">
 
-            <!---------- PROGRESS-BOX ---------->
+            <!-- PROGRESS-BOX -->
             <div class="text-center" id="progress-box">
                 <div class="container">
                     <div class="row " id="progress-game-level">
@@ -139,9 +137,9 @@
                     </div>
                 </div>
             </div>
-            <!---------- /PROGRESS-BOX ---------->
+            <!-- /PROGRESS-BOX -->
 
-            <!---------- INFORMATION-BOX ---------->
+            <!-- INFORMATION-BOX -->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center" id="information-level-box">
@@ -149,24 +147,24 @@
                     </div>
                     <div class="col-12 text-center" id="information-box">
                         <h2>Instructions</h2>
-                        <p>You have <strong>5 seconds</strong> to memorize the pictures in the photos. If you guess
+                        <p>You have a <strong>few seconds</strong> to memorize the pictures in the photos. If you guess
                             <strong>each</strong>
-                            picture you can continue to the next level! There are <strong>six</strong> levels in total!
+                            image, you can continue to the next level! There are <strong>six</strong> levels in total!
                         </p>
                     </div>
                 </div>
             </div>
-            <!---------- /INFORMATION-BOX ---------->
+            <!-- /INFORMATION-BOX -->
 
-            <!---------- ENDGAME-BOX ---------->
+            <!-- ENDGAME-BOX -->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center d-none" id="endgame-box">
                         <form id="form-reward" onsubmit="return sendMail(this);">
                             <div>
-                                <label for="recipient-name" class="col-form-label">Insert an <strong>email
+                                <label for="form-reward-mail" class="col-form-label">Insert an <strong>email
                                         address</strong> to share your result!</label>
-                                <input type="mail" class="form-control" id="form-reward-mail" name="emailaddress"
+                                <input type="email" class="form-control" id="form-reward-mail" name="emailaddress"
                                     placeholder="email" required>
                                 <button type="submit" class="btn btn-primary" id="form-button">Send</button>
                             </div>
@@ -174,9 +172,9 @@
                     </div>
                 </div>
             </div>
-            <!---------- /ENDGAME-BOX ---------->
+            <!-- /ENDGAME-BOX -->
 
-            <!---------- GAME-BOX ---------->
+            <!-- GAME-BOX -->
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center position-relative" id="game-box">
@@ -219,9 +217,9 @@
                     </div>
                 </div>
             </div>
-            <!---------- /GAME-BOX ---------->
+            <!-- /GAME-BOX -->
 
-            <!---------- BUTTON-BOX ---------->
+            <!-- BUTTON-BOX -->
             <div class="container">
                 <div class="row">
                     <div id="button-box" class="col-12 text-center">
@@ -232,15 +230,14 @@
                     </div>
                 </div>
             </div>
-            <!---------- /BUTTON-BOX ---------->
+            <!-- /BUTTON-BOX -->
 
-            <!---------- MODAL-CHOICES ---------->
-            <div class="modal fade" id="choices-modal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+            <!-- MODAL-CHOICES -->
+            <div class="modal fade" id="choices-modal" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Choose a picture!</h5>
+                            <h5 class="modal-title" id="modalLabel">Choose a picture!</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body text-center">
@@ -263,26 +260,25 @@
                 </div>
             </div>
         </div>
-        <!---------- /MODAL-CHOICES ---------->
+        <!-- /MODAL-CHOICES -->
 
-        <!---------- FOOTER ---------->
-        <div class="container">
+        <!-- FOOTER -->
+        <footer class="container">
             <div class="row">
                 <div class="col-12 text-center">
                     <a href="index.html" target="_blank"><i class="fab fa-facebook footer-icon"
                             id="facebook-icon"></i></a>
                     <a href="index.html" target="_blank"><i class="fab fa-instagram footer-icon"
-                            id="instagram-icon"></i></a>
-                    <a href="index.html" target="_blank"><i class="fab fa-twitter footer-icon"
-                            id="twitter-icon"></i></a>
+                            id="instagram-icon"></i></a>                    
                     <i class="fas fa-volume-mute volume-inactive footer-icon" id="music-icon"></i>
                     <audio id="bg-music" loop>
                         <source src="assets/audio/music-1.mp3" type="audio/mp3">
+                        Your browser does not support the audio element.
                     </audio>
                 </div>
             </div>
-        </div>
-        <!---------- /FOOTER ---------->
+        </footer>
+        <!-- /FOOTER -->
 
     </div>
 

@@ -1,6 +1,8 @@
+/********** GENERAL **********/
+
 body {
   background: #f29559;
-  background-image: url(../images/bg-pattern3.png);
+  background-image: url(../images/bg-pattern.png);
   font-family: "Comfortaa", sans-serif;
   background-size: 400px;
 }
@@ -14,85 +16,18 @@ p {
   padding: 0px;
 }
 
-#progress-box {
-  margin: 30px auto 20px;
-  max-width: 400px;
-
-  padding-top: 20px;
-}
-
-#game-box {
-  padding-top: 10px;
-  padding-bottom: 40px;
-}
-
 #game-outer-wrapper {
   background-image: linear-gradient(45deg, #7f7eff, #76e5fc);
-  max-width: 600px;
-  /* height: 85vh; */
-  min-height: 400px;
-  /* max-height: 550px; */
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 40px;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  max-width: 600px;  
+  min-height: 400px;    
+  border-radius: 40px;  
   position: relative;
+  margin: 40px auto;
 }
 
-/********** INFORMATION-BOX **********/
+/********** /GENERAL **********/
 
-#information-box {
-  padding-top: 10px;
-  /* height: 100px; */
-}
-
-#endgame-box {
-  padding-bottom: 20px;
-}
-
-#start-button,
-#continue-button,
-#restart-button,
-#form-button,
-#hard-reset-button {
-  border: none;
-  text-transform: uppercase;
-  background: transparent;
-  padding: 0;
-  font-weight: 600;
-  /* margin-bottom: 15px; */
-  transform: all ease-in 0.2s;
-}
-
-#start-button:hover,
-#continue-button:hover,
-#restart-button:hover,
-#form-button:hover,
-#hard-reset-button:hover {
-  color: #a64253;
-}
-
-#start-button:focus,
-#continue-button:focus,
-#restart-button:focus,
-#form-button:focus,
-#hard-reset-button:focus,
-.game-slot-button:focus {
-  outline: none;
-}
-
-#information-level-box {
-  display: none;
-  font-size: large;
-}
-
-.reward-trophy {
-  height: 150px;
-  margin: 15px;
-}
-
-/********** CALLOUT **********/
+/********** TITLE-SCREEN **********/
 
 .callout {
   position: relative;
@@ -108,16 +43,14 @@ p {
   cursor: pointer;
 }
 
-.callout-logo:hover {
-  /* height: 21rem; */
+.callout-logo:hover {  
   opacity: 0.8;
 }
 
 .callout .callout-title {
   font-size: 3rem;
   font-family: "Ribeye", sans-serif;
-  line-height: 3rem;
-  font-weight: 400;
+  line-height: 3rem;  
 }
 
 .callout .callout-subtitle {
@@ -129,35 +62,11 @@ p {
   width: 100px;
   margin-right: auto;
   margin-left: auto;
-  color: #0b132b;
+  color: black;
   opacity: 100%;
 }
 
-.callout .callout-scroll {
-  position: absolute;
-  bottom: 1rem;
-  left: 0;
-  width: 100%;
-  text-align: center;
-}
-
-.callout .callout-scroll .callout-scroll-btn {
-  display: inline-block;
-  font-size: 1.5rem;
-  height: 3.125rem;
-  width: 3.125rem;
-  line-height: 3.125rem;
-  border-radius: 100%;
-  border: 0.125rem;
-  border-style: solid;
-  border-color: #0b132b;
-  cursor: pointer;
-  -webkit-transition: all 0.15s ease-in-out;
-  transition: all 0.15s ease-in-out;
-  color: #0b132b;
-}
-
-/********** /CALLOUT **********/
+/********** /TITLE-SCREEN **********/
 
 /********** PROGRESS-BOX **********/
 
@@ -167,9 +76,7 @@ p {
   width: 30px;
   height: 30px;
   display: block;
-  background: #f2d492;
-  /* background: #e9ecef; */
-  /* background: #a64253; */
+  background: #f2d492;  
   border-radius: 50%;
   right: -15px;
   top: 10px;
@@ -219,8 +126,7 @@ p {
 
 .score {
   margin-top: 20px;
-  color: #1c2541;
-  /* color: #0d6efd; */
+  color: black;  
 }
 
 .progress {
@@ -230,6 +136,32 @@ p {
 .progress-bar {
   background-color: #a64253;
 }
+
+#progress-box {
+  margin: 30px auto 20px;
+  max-width: 400px;
+  padding-top: 20px;
+}
+
+#game-box {
+  padding-top: 10px;
+  padding-bottom: 40px;
+}
+
+/********** /PROGRESS-BOX **********/
+
+/********** INFORMATION-BOX **********/
+
+#information-box {
+  padding-top: 10px;  
+}
+
+#information-level-box {
+  display: none;
+  font-size: large;
+}
+
+/********** /INFORMATION-BOX **********/
 
 /********** GAME-BOX **********/
 
@@ -302,9 +234,67 @@ p {
   box-shadow: 2px 2px 5px black;
 }
 
+/********** /GAME-BOX **********/
+
+/********** BUTTON-BOX **********/
+
 #button-box {
   padding-bottom: 15px;
 }
+
+#start-button,
+#continue-button,
+#restart-button,
+#form-button,
+#hard-reset-button {
+  border: none;
+  text-transform: uppercase;
+  background: transparent;
+  padding: 0;
+  font-weight: 600;  
+  transform: all ease-in 0.2s;
+}
+
+#start-button:hover,
+#continue-button:hover,
+#restart-button:hover,
+#form-button:hover,
+#hard-reset-button:hover {
+  color: #a64253;
+}
+
+#start-button:focus,
+#continue-button:focus,
+#restart-button:focus,
+#form-button:focus,
+#hard-reset-button:focus,
+.game-slot-button:focus {
+  outline: none;
+}
+
+/********** /BUTTON-BOX **********/
+
+/********** ENDGAME-BOX **********/
+
+#endgame-box {
+  padding-bottom: 20px;
+}
+
+.reward-trophy {
+  height: 150px;
+  margin: 15px;
+}
+
+#form-reward-mail {
+  max-width: 400px;
+  margin: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/********** ENDGAME-BOX **********/
+
+/********** FOOTER **********/
 
 .footer-icon {
   color: white;
@@ -335,20 +325,8 @@ bottom: 15px;
 left: 60px;
 }
 
-#twitter-icon {
-  bottom: 15px;
-  left: 100px;
-}
 
-
-/********** ENDGAME-BOX **********/
-
-#form-reward-mail {
-  max-width: 400px;
-  margin: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
+/********** /FOOTER **********/
 
 /********** SMALL-SCREEN **********/
 

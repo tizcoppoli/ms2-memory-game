@@ -1,11 +1,21 @@
-console.log("Hello, World from main!");
+$("body").on("click", ".fade-trigger", function () {
+  if (!$("#main-game").hasClass("screen-active")) {
+    $(".callout").fadeToggle();
 
-$("body").on("click", ".js-scroll-trigger", function () {
-  $(".callout").fadeToggle();
+    setTimeout(function () {
+      $("#main-game").fadeToggle();
+    }, 400);
 
-  setTimeout(function () {
+    $("#main-game").addClass("screen-active");
+  } else {
     $("#main-game").fadeToggle();
-  }, 400);
+
+    setTimeout(function () {
+      $(".callout").fadeToggle();
+    }, 400);
+
+    $("#main-game").removeClass("screen-active");
+  }
 });
 
 $("body").on("click", ".volume-inactive", function () {

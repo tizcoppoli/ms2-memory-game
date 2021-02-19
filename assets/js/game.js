@@ -1,17 +1,15 @@
-console.log("Hello, World from game!");
-
 /* ogni slot è un oggetto a cui vengono date delle proprietà */
 function newGame(level) {
   let slotCollection = $(".game-slot");
   let choiceCollection = $(".button-game-choice");
-  let timeLeft = 5;
+  let timeLeft = level + 1;
   let arrayOfPossibilities = [
-    "amsterdam",
+    "netherlands",
     "china",
     "japan",
-    "london",
-    "newyork",
-    "paris",
+    "uk",
+    "usa",
+    "france",
     "italy",
   ];
 
@@ -62,11 +60,10 @@ function initializeGameArea(level, slotCollection) {
 function storeChoiceValues(choiceCollection, arrayOfPossibilities) {
   for (let i = 0; i < choiceCollection.length; i++) {
     choiceCollection[i].storedValue = arrayOfPossibilities[i];
-    /* choiceCollection[i].style.background = choiceCollection[i].storedValue; */
+    
     choiceCollection[
       i
     ].style.backgroundImage = `url(assets/images/${choiceCollection[i].storedValue}.png)`;
-    console.log(arrayOfPossibilities[i]);
   }
 }
 
@@ -98,14 +95,11 @@ function setHiddenValues(randomSequence, slotCollection) {
     slotCollection[
       i
     ].style.backgroundImage = `url(assets/images/${slotCollection[i].hiddenValue}.png)`;
-    /* slotCollection[i].style.background = slotCollection[i].hiddenValue; */
-    /* slotCollection[i].isCorrect = undefined; */
+    
   }
 }
 
 function initializeGameObjects(slotCollection) {
-  console.log("initializeGameObjects chiamata");
-
   for (let i = 0; i < slotCollection.length; i++) {
     slotCollection[i].isCorrect = undefined;
     slotCollection[i].givenValue = undefined;
@@ -117,11 +111,11 @@ function initializeGameObjects(slotCollection) {
 function checkValue(gameSlot) {
   if (gameSlot.hiddenValue == gameSlot.givenValue) {
     gameSlot.isCorrect = true;
-    console.log("il valore è corretto");
+
     return true;
   } else {
     gameSlot.isCorrect = false;
-    console.log("il valore è sbagliato");
+
     return false;
   }
 }
@@ -129,11 +123,10 @@ function checkValue(gameSlot) {
 function checkAllFilled(slotCollection) {
   for (let slot of slotCollection) {
     if (slot.isCorrect == undefined) {
-      console.log("almeno un undefined");
       return false;
     }
   }
-  console.log("tutti i valori sono definiti");
+
   return true;
 }
 
@@ -149,13 +142,12 @@ function checkAllCorrect(slotCollection) {
 /* imposta il conto alla rovescia per memorizzare la sequenza*/
 function setTimer(timeLeft, functionAfterTimer) {
   let timer = setInterval(function () {
-    console.log(timeLeft);
     timeLeft--;
     updateWaitScreen(timeLeft);
 
     if (timeLeft <= 0) {
       clearInterval(timer);
-      console.log("tempo esaurito");
+
       functionAfterTimer($(".game-slot-button"));
     }
   }, 1000);
@@ -174,13 +166,12 @@ function coverGameSlots(gameButtonCollection) {
 /* PROGRESS-SCORE */
 
 function incrementProgressBar(level) {
-  $(`#lv-${level}`).css("width", "100%");
+  $(`#lv-${level}`).attr("aria-valuenow",100).css("width", "100%");
   setTimeout(function () {
     let dot = $(`#dot-${level}`);
 
     activateDot(dot);
-    /* dot.css("background-color", "#a64253");
-    dot.children().css("background-color", "cornsilk").children().remove(); */
+    
   }, 400);
 }
 
@@ -190,7 +181,7 @@ function activateDot(dot) {
 }
 
 function resetProgressBar() {
-  $(".progress-bar-game").css("width", "0%");
+  $(".progress-bar-game").attr("aria-valuenow",0).css("width", "0%");
   $(".dot").css("background-color", "#f2d492");
   $("#dot-0").css("background-color", "#f2d492");
 }
@@ -277,11 +268,11 @@ function setEndScreen() {
   $("#information-box").html(`<h2>Thanks for playing!</h2>
   <p>Your score is:</p>
   <h2>${score}%</h2>
- <img src="assets/images/${trophy}.png" class="reward-trophy"> `);
+ <img src="assets/images/${trophy}.png" class="reward-trophy" alt="trophy"> `);
 
   $("#button-box")[0].innerHTML = `
     <button id="restart-button" type="button" class="btn btn-primary">Play Again</button> <br>
-    <button class="js-scroll-trigger btn btn-primary" id="hard-reset-button" type="button">Title Screen</button>
+    <button class="fade-trigger btn btn-primary" id="hard-reset-button" type="button">Title Screen</button>
   `;
   $("#button-box").removeClass("d-none");
 }
@@ -298,38 +289,30 @@ $("body").on("click", "#restart-button", function () {
   resetProgressBar();
   resetGame();
   newGame(1);
-
-  /* $(".callout").fadeToggle();
-  setTimeout(function () {
-    $("#main-game").fadeToggle();
-  }, 400);
- */
 });
 
 $("body").on("click", "#hard-reset-button", function () {
-  $("#score-text").html("0");
-  $("#level-text").html("1");
-  $("#music-icon").removeClass("fa-volume-up").removeClass("volume-active").addClass("volume-inactive").addClass("fa-volume-mute");
-  $("#bg-music")[0].pause();
-  resetProgressBar();
-  resetGame();
-  $("#information-box").html(`<h2>Instructions</h2>
-  <p>You have <strong>5 seconds</strong> to memorize the pictures in the photos. If you guess
+  setTimeout(function () {
+    $("#score-text").html("0");
+    $("#level-text").html("1");
+    $("#music-icon")
+      .removeClass("fa-volume-up")
+      .removeClass("volume-active")
+      .addClass("volume-inactive")
+      .addClass("fa-volume-mute");
+    $("#bg-music")[0].pause();
+    resetProgressBar();
+    resetGame();
+    $("#information-box").html(`<h2>Instructions</h2>
+  <p>You have <strong>7 seconds</strong> to memorize the pictures in the photos. If you guess
       <strong>each</strong>
       picture you can continue to the next level! There are <strong>six</strong> levels in total!
   </p>`);
-  $("#button-box").html(`<p>
+    $("#button-box").html(`<p>
                             Press <button id="start-button" type="button" class="btn btn-primary">Start</button> to
                             begin!
                         </p>`);
-
-  /* newGame(1); */
-
-  /* $(".callout").fadeToggle();
-  setTimeout(function () {
-    $("#main-game").fadeToggle();
   }, 400);
- */
 });
 
 $("body").on("click", "#continue-button", function () {
@@ -343,7 +326,6 @@ $("#game-box").on("click", ".game-slot-button", function () {
   $(".slot-active").removeClass("slot-active");
   $(this).parent().addClass("slot-active");
   let thisButtonHiddenValue = $(this).parent()[0].hiddenValue;
-  console.log("il valore nascosto è: " + thisButtonHiddenValue);
 });
 
 $(".button-game-choice").click(function () {
@@ -357,8 +339,6 @@ $(".button-game-choice").click(function () {
   slotToCheck.style.background = slotToCheck.givenValue;
   slotButton.addClass("d-none");
 
-  console.log("il valore assegnato è: " + slotToCheck.givenValue);
-
   if (checkValue(slotToCheck)) {
     $(".slot-active").addClass("fas fa-check correct-answer");
     setGoodOptionScreen();
@@ -370,16 +350,13 @@ $(".button-game-choice").click(function () {
 
   if (checkAllFilled(slotCollection)) {
     if (checkAllCorrect(slotCollection)) {
-      console.log("tutti i valori sono giusti");
       incrementProgressBar($(".level-active").length);
       /* incrementLevelText(); */
       currentLevel === 6 ? setEndScreen() : setWinScreen();
     } else {
-      console.log("almeno un valore è sbagliato");
       setLoseScreen();
       setEndScreen();
     }
   } else {
-    console.log("riempi gli altri slot");
   }
 });
