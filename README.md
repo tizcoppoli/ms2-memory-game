@@ -20,7 +20,7 @@ The site's primary goal is to entertain the visitors and inspire them to visit m
 
  - There are six levels in total.
  - Each level starts with a sequence of world landmarks to memorize.
- - The difficulty is progressive.Llevel one starts with just one picture, level two with two pictures etc...
+ - The difficulty is progressive. Level one starts with just one picture, level two with two pictures etc...
  - The user has a few seconds to memorize the sequence.
  - The user needs to match all the elements in order to proceed with the next level.
  - If the user makes a mistake, the game is over.
@@ -28,64 +28,42 @@ The site's primary goal is to entertain the visitors and inspire them to visit m
 
 ### User stories
 
-#### First Time Visitor Goals
-
-1. As a First Time Visitor, I want to learn how to play quickly.
-  * Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
-  * The game starts easily and become more challenging after the first level.
-
-2. As a First Time Visitor, I want to understand how long the game is.
-  * In the instruction pane, it is clear that the game has six levels in total.
-  * In the top part, there is an intuitive progress bar that indicates the current level.
-  * In the mobile version, the progress bar is replaced with a paragraph stating the current level and the total number of levels.
-
-3. As a First Time Visitor, I want to try to turn on the music.
-  * In the lower part, there is the audio button to toggle music on/off.
-  * The user can switch the music on/off anytime during the game or on the title screen.
-
-#### Returning Visitor Goals
-
-1. As a Returning Visitor, I want to improve my score.
-  * When the user makes a mistake or beat level six the game is over and show the user his score from 0 to 100%.
-  * The user can play again to make a better score.
-  * If the score is less than 30%, the user will get a bronze cup, more than 30% is a silver cup, and 100% is a gold cup.
-
-2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-  * At the end of the game, the user can insert an email address in a form to automatically send an email stating his result.
-  * The user can insert the proper email address to save his result or another to share with other people.
-
-3. As a Returning Visitor, I want to find community links.
-  * At the bottom of the screen, there are the community links to visit the social pages easily.
-
-#### Frequent User Goals
-
-1. As a Frequent User, I want to periodically test my memory.
-  * The user can test his memory periodically and see if there are improvements over time.
-
-2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
-  * The game provides a variety of different pictures of real-world landmark.
-  * The user can be inspired by the different places and choose one of those for the next trip.
-
-3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
-  * The user can share the website with friends to challenge from a distance and see who is better.
-  * The user can play with friends also with just one computer in the same place. There's no need to be in different places.
-
-### UX - Five Planes
-
-  1. Strategy
-    * The primary goal is to entertain the user with a quick memory game.
+1. First Time Visitor Goals
+  * As a First Time Visitor, I want to learn how to play quickly.
+  * As a First Time Visitor, I want to understand how long the game is.
+  * As a First Time Visitor, I want to try to turn on the music.
   
-  2. Scope
-    * Everything should be easy to understand, and the game should be quick to learn. There aren't any navigation elements, but the user should be able to activate the music anytime, replay the game and share the result with others.
 
-  3. Structure
-    * There is a title screen with a callout image to play the game. There is no need for a navbar since the only purpose is to play the game. After the title screen, there are instructions to teach the user how to play. Then the game starts with level 1 and moves further to level six. If the user makes a mistake or win each level, the ending screen appears. In the ending screen, there is the reward, the score, and the mail form to share the result. 
+2. Returning Visitor Goals
 
-  4. Skeleton
-    * The game wrapper is the main div containing the title screen and the game screen. The game screen is composed of a progress box, an information box, a game box, and a button box. All the elements are generated in these boxes at runtime. Check the wireframe for more details.
+  * As a Returning Visitor, I want to improve my score.
+  * As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+  * As a Returning Visitor, I want to find community links.
+  
 
-  5. Surface
-    * The game is in flat design to look modern, easy, and fresh. The theme is travel, so the title screen feature a camera and each element to memorize in the game are pictures of world landmarks. Check the design for more details.
+3. Frequent User Goals
+
+  * As a Frequent User, I want to periodically test my memory.
+  * As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
+  * As a Frequent User, I want to challenge friends to see who has a better visual memory.
+  
+
+### UX - Five Planes Method
+
+1. Strategy
+  * The primary goal is to entertain the user with a quick memory game.
+  
+2. Scope
+  * Everything should be easy to understand, and the game should be quick to learn. There aren't any navigation elements, but the user should be able to activate the music anytime, replay the game and share the result with others.
+
+3. Structure
+  * There is a title screen with a callout image to play the game. There is no need for a navbar since the only purpose is to play the game. After the title screen, there are instructions to teach the user how to play. Then the game starts with level 1 and moves further to level six. If the user makes a mistake or win each level, the ending screen appears. In the ending screen, there is the reward, the score, and the mail form to share the result. 
+
+4. Skeleton
+  * The game wrapper is the main div containing the title screen and the game screen. The game screen is composed of a progress box, an information box, a game box, and a button box. All the elements are generated in these boxes at runtime. Check the wireframe for more details.
+
+5. Surface
+  * The game is in flat design to look modern, easy, and fresh. The theme is travel, so the title screen feature a camera and each element to memorize in the game are pictures of world landmarks. Check the design for more details.
 
 ### Design
 
@@ -120,19 +98,19 @@ The site's primary goal is to entertain the visitors and inspire them to visit m
 ## Features
 
 - Responsive on all device sizes
-- Interactive audio control
+- Interactive audio controls
 - Six levels to play
 - Button hover animations
 - Modal used to choose game options
 - Progress bar
 - Score system
 - Three possible rewards
-- Send result via mail
+- Send results via mail
 
 ### Features Left to Implement
 
 - More sound effects
-- Difficult selector
+- Difficulty selector
 
 ## Technologies Used
 
@@ -180,6 +158,50 @@ The deployed site was tested with Lighthouse for performance evaluation and with
   <img src="assets/doc/lighthouse.png">
 
 - [Responsinator](http://www.responsinator.com/) - [Results](http://www.responsinator.com/?url=https%3A%2F%2Ftizianocoppoli.github.io%2Fms2-memory-game%2F)
+
+### Testing User stories from User Experience (UX) Section
+
+#### First Time Visitor Goals
+
+1. As a First Time Visitor, I want to learn how to play quickly.
+  * Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
+  * The game starts easily and become more challenging after the first level.
+
+2. As a First Time Visitor, I want to understand how long the game is.
+  * In the instruction pane, it is clear that the game has six levels in total.
+  * In the top part, there is an intuitive progress bar that indicates the current level.
+  * In the mobile version, the progress bar is replaced with a paragraph stating the current level and the total number of levels.
+
+3. As a First Time Visitor, I want to try to turn on the music.
+  * In the lower part, there is the audio button to toggle music on/off.
+  * The user can switch the music on/off anytime during the game or on the title screen.
+
+#### Returning Visitor Goals
+
+1. As a Returning Visitor, I want to improve my score.
+  * When the user makes a mistake or beat level six the game is over and show the user his score from 0 to 100%.
+  * The user can play again to make a better score.
+  * If the score is less than 30%, the user will get a bronze cup, more than 30% is a silver cup, and 100% is a gold cup.
+
+2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+  * At the end of the game, the user can insert an email address in a form to automatically send an email stating his result.
+  * The user can insert the proper email address to save his result or another to share with other people.
+
+3. As a Returning Visitor, I want to find community links.
+  * At the bottom of the screen, there are the community links to visit the social pages easily.
+
+#### Frequent User Goals
+
+1. As a Frequent User, I want to periodically test my memory.
+  * The user can test his memory periodically and see if there are improvements over time.
+
+2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
+  * The game provides a variety of different pictures of real-world landmark.
+  * The user can be inspired by the different places and choose one of those for the next trip.
+
+3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
+  * The user can share the website with friends to challenge from a distance and see who is better.
+  * The user can play with friends also with just one computer in the same place. There's no need to be in different places.
 
 ### Further Testing
 
