@@ -103,13 +103,13 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
   - Black: #000000
   - White: #ffffff
 
-  #### Typography
+#### Typography
 
-    - "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in a case for any reason the font isn't being imported into the site correctly.
-    - "Ribeye" is a clean font used for headings.
+- "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in a case for any reason the font isn't being imported into the site correctly.
+- "Ribeye" is a clean font used for headings.
 
-  #### Imagery
-    - Imagery is important. The game is in flat design. The images are without borders and the image under the title is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
+#### Imagery
+- Imagery is important. The game is in flat design. The images are without borders and the image under the title is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
 
   ### Wireframes
 
@@ -145,25 +145,25 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 ### Frameworks, Libraries & Programs Used
 
 1. [Bootstrap 4.1.3:](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
-   - Bootstrap was used to assist with the responsiveness and styling of the website.
+  - Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Google Fonts:](https://fonts.google.com/)
-   - Google fonts were used throughout the project.
+  - Google fonts were used throughout the project.
 3. [Font Awesome:](https://fontawesome.com/)
-   - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+  - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 4. [jQuery:](https://jquery.com/)
-   - jQuery was used to control the audio, the animations and throughout the game code.
+  - jQuery was used to control the audio, the animations and throughout the game code.
 5. [Git](https://git-scm.com/)
-   - Git was used for version control.
+  - Git was used for version control.
 6. [GitHub:](https://github.com/)
-   - GitHub is used to store the projects code after being pushed from Git.
+  - GitHub is used to store the projects code after being pushed from Git.
 7. [Paint.net:](https://www.getpaint.net/)
-   - Paint.net was used to edit the game graphics and background.
+  - Paint.net was used to edit the game graphics and background.
 8. [Balsamiq:](https://balsamiq.com/)
-   - Balsamiq was used to create the during the design process.
+  - Balsamiq was used to create the during the design process.
 9. [Visual Studio Code:](https://code.visualstudio.com/)
-   - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
+  - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
 10. [EmailJS:](https://www.emailjs.com/)
-   - EmailJS was used to send mails to players with their result.
+  - EmailJS was used to send mails to players with their result.
 
 ## Testing
 
