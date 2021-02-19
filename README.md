@@ -10,21 +10,21 @@ This is the Travel Memory website. It is designed to be responsible and accessib
 
 ### Project Goals
 
-The site's primary goal is to entertain the visitors and inspire them visiting multiple locations around the globe by playing a challenging memory game. It could be insered in a travel agency website to drive more traffic as well. The site has three target audience:
+The site's primary goal is to entertain the visitors and inspire them to visit multiple locations around the globe by playing a challenging memory game. It could be inserted in a travel agency website to drive more traffic as well. The site has three target audience:
 
-- First time visitors (casual players).
-- Returning visitors (people who already know the game).
-- Frequent visitors (people who like the game and want to test their memory).
+- First time visitors (casual players)
+- Returning visitors (people who already know the game)
+- Frequent visitors (people who like the game and want to test their memory)
 
 ### Game Rules
 
- - There are six levels in total
- - Each level starts with a sequence of world landmarks to memorize
- - The difficult is progressive, level one start with just one picture, level two with two pictures ecc...
- - The user has a few seconds to memorize the sequence
- - The user needs to match all the elements in order to procede with the next level
- - If the user make a mistake the game is over
- - The score is calculated from 0% (game over at level one) to 100% (all answers are correct in level six)
+ - There are six levels in total.
+ - Each level starts with a sequence of world landmarks to memorize.
+ - The difficulty is progressive.Llevel one starts with just one picture, level two with two pictures etc...
+ - The user has a few seconds to memorize the sequence.
+ - The user needs to match all the elements in order to proceed with the next level.
+ - If the user makes a mistake, the game is over.
+ - The score is calculated from 0% (game over at level one) to 100% (all answers are correct in level six).
 
 ### User stories
 
@@ -32,43 +32,43 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 
 1. As a First Time Visitor, I want to learn how to play quickly.
   * Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
-  * The game start easily and become more challenging after the first level.
+  * The game starts easily and become more challenging after the first level.
 
-2. As a First Time Visitor, I want to understand how long is the game.
-  * In the instruction pane it is clear that the game has six levels in total.
-  * In the top part there is a intuitive progress bar that indicates the current level.
-  * In the mobile version the progress bar is replace with a paragraph stating the current level and the total number of levels.
+2. As a First Time Visitor, I want to understand how long the game is.
+  * In the instruction pane, it is clear that the game has six levels in total.
+  * In the top part, there is an intuitive progress bar that indicates the current level.
+  * In the mobile version, the progress bar is replaced with a paragraph stating the current level and the total number of levels.
 
 3. As a First Time Visitor, I want to try to turn on the music.
-  * In the lower part there is the audio button to toggle music on/off.
-  * The user can switch the music on/off anytime during the game or in the title screen.
+  * In the lower part, there is the audio button to toggle music on/off.
+  * The user can switch the music on/off anytime during the game or on the title screen.
 
 #### Returning Visitor Goals
 
 1. As a Returning Visitor, I want to improve my score.
-  * When the user make a mistake or beat level six the game is over and show the user his score from 0 to 100%.
+  * When the user makes a mistake or beat level six the game is over and show the user his score from 0 to 100%.
   * The user can play again to make a better score.
-  * If the score is less than 30% the user will get a bronze cup, more than 30% is a silver cup and 100% is a gold cup.
+  * If the score is less than 30%, the user will get a bronze cup, more than 30% is a silver cup, and 100% is a gold cup.
 
 2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-  * At the end of the game the user can insert an email address in a form to automatically send an email stating his result.
+  * At the end of the game, the user can insert an email address in a form to automatically send an email stating his result.
   * The user can insert the proper email address to save his result or another to share with other people.
 
 3. As a Returning Visitor, I want to find community links.
-  * At the bottom of the screen there are the community links to visit easily the social pages.
+  * At the bottom of the screen, there are the community links to visit the social pages easily.
 
 #### Frequent User Goals
 
 1. As a Frequent User, I want to periodically test my memory.
   * The user can test his memory periodically and see if there are improvements over time.
 
-2. As a Frequent User, I want to being inspired by the setting and choose a location for my next trip.
-  * The game provide a variety of different pictures of real world landmark.
+2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
+  * The game provides a variety of different pictures of real-world landmark.
   * The user can be inspired by the different places and choose one of those for the next trip.
 
 3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
-  * The user can share the website with friend to challenge from the distance and see who is better.
-  * The user can play with friends also with just one computer in the same place, there's no need to be in different places.
+  * The user can share the website with friends to challenge from a distance and see who is better.
+  * The user can play with friends also with just one computer in the same place. There's no need to be in different places.
 
 ### UX - Five Planes
 
@@ -76,16 +76,16 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
     * The primary goal is to entertain the user with a quick memory game.
   
   2. Scope
-    * Everithing should be easy to understand and the game should be quick to learn. There aren't any navigation elements but the user should be able to activate the music anytime, replay the game and share the result with others.
+    * Everything should be easy to understand, and the game should be quick to learn. There aren't any navigation elements, but the user should be able to activate the music anytime, replay the game and share the result with others.
 
   3. Structure
-    * There is a title screen with a callout image to play the game. There is no need of a navbar since the only purpose is to play the game. After the title screen there is there are the instructions to teach the user how to play. Then the game start with level 1 and move further to level six. If the user make a mistake or win each levels, the ending screen appears. In the ending screen there is the reward, the score and the mail form to share the result. 
+    * There is a title screen with a callout image to play the game. There is no need for a navbar since the only purpose is to play the game. After the title screen, there are instructions to teach the user how to play. Then the game starts with level 1 and moves further to level six. If the user makes a mistake or win each level, the ending screen appears. In the ending screen, there is the reward, the score, and the mail form to share the result. 
 
   4. Skeleton
-    * The game wrapper is the main div containing the title screen and the game screen. The game screen is composed by a progress box, an information box, a game box and a button box. All the elements are generated in these boxes at runtime. Check the wireframe for more details.
+    * The game wrapper is the main div containing the title screen and the game screen. The game screen is composed of a progress box, an information box, a game box, and a button box. All the elements are generated in these boxes at runtime. Check the wireframe for more details.
 
   5. Surface
-    * The game is in flat design to look modern, easy and fresh. The theme is travel so the title screen feature a camera and each elements to memorize in the game are picture of world landmarks. Check the design for more details.
+    * The game is in flat design to look modern, easy, and fresh. The theme is travel, so the title screen feature a camera and each element to memorize in the game are pictures of world landmarks. Check the design for more details.
 
 ### Design
 
@@ -105,17 +105,17 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 
 #### Typography
 
-- "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in a case for any reason the font isn't being imported into the site correctly.
+- "Comfortaa" is the main font used throughout the whole website, with Sans Serif as the fallback font in case for any reason the font isn't being imported into the site correctly.
 - "Ribeye" is a clean font used for headings.
 
 #### Imagery
-- Imagery is important. The game is in flat design. The images are without borders and the image under the title is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
+- Imagery is important. The game is in flat design. The images are without borders, and the image under the title is designed to be striking and catch the user's attention. It also has a modern, energetic aesthetic.
 
-  ### Wireframes
+### Wireframes
 
-  - Desktop Wireframe - [View](assets/doc/desktop.pdf)
-  - Tablet Wireframe - [View](assets/doc/tablet.pdf)
-  - Mobile Wireframe - [View](assets/doc/mobile.pdf)
+- Desktop Wireframe - [View](assets/doc/desktop.pdf)
+- Tablet Wireframe - [View](assets/doc/tablet.pdf)
+- Mobile Wireframe - [View](assets/doc/mobile.pdf)
 
 ## Features
 
@@ -163,7 +163,7 @@ The site's primary goal is to entertain the visitors and inspire them visiting m
 9. [Visual Studio Code:](https://code.visualstudio.com/)
   - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
 10. [EmailJS:](https://www.emailjs.com/)
-  - EmailJS was used to send mails to players with their result.
+  - EmailJS was used to send emails to players with their results.
 
 ## Testing
 
@@ -257,7 +257,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
 ### Code
 
-- [Bootstrap 4.1.3](https://getbootstrap.com/docs/4.0/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make site responsive using the Bootstrap Grid System.
+- [Bootstrap 4.1.3](https://getbootstrap.com/docs/4.0/getting-started/introduction/): Bootstrap Library used throughout the project mainly to make the site responsive using the Bootstrap Grid System.
 - Code for modal taken from [Getbootstrap](https://getbootstrap.com/docs/4.0/components/modal/)
 
 ### Content
