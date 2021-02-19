@@ -28,24 +28,25 @@ The site's primary goal is to entertain the visitors and inspire them to visit m
 
 ### User stories
 
-1. First Time Visitor Goals
-  * As a First Time Visitor, I want to learn how to play quickly.
-  * As a First Time Visitor, I want to understand how long the game is.
-  * As a First Time Visitor, I want to try to turn on the music.
+  - ### First Time Visitor Goals
+
+    1. As a First Time Visitor, I want to learn how to play quickly.
+    2. As a First Time Visitor, I want to understand how long the game is.
+    3. As a First Time Visitor, I want to try to turn on the music.
   
 
-2. Returning Visitor Goals
+  - ### Returning Visitor Goals
 
-  * As a Returning Visitor, I want to improve my score.
-  * As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-  * As a Returning Visitor, I want to find community links.
+    1. As a Returning Visitor, I want to improve my score.
+    2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+    3. As a Returning Visitor, I want to find community links.
   
 
-3. Frequent User Goals
+  - ### Frequent User Goals
 
-  * As a Frequent User, I want to periodically test my memory.
-  * As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
-  * As a Frequent User, I want to challenge friends to see who has a better visual memory.
+    1. As a Frequent User, I want to periodically test my memory.
+    2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
+    3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
   
 
 ### UX - Five Planes Method
@@ -123,25 +124,25 @@ The site's primary goal is to entertain the visitors and inspire them to visit m
 ### Frameworks, Libraries & Programs Used
 
 1. [Bootstrap 4.1.3:](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
-  - Bootstrap was used to assist with the responsiveness and styling of the website.
+    - Bootstrap was used to assist with the responsiveness and styling of the website.
 2. [Google Fonts:](https://fonts.google.com/)
-  - Google fonts were used throughout the project.
+    - Google fonts were used throughout the project.
 3. [Font Awesome:](https://fontawesome.com/)
-  - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
+    - Font Awesome was used on all pages throughout the website to add icons for aesthetic and UX purposes.
 4. [jQuery:](https://jquery.com/)
-  - jQuery was used to control the audio, the animations and throughout the game code.
+    - jQuery was used to control the audio, the animations and throughout the game code.
 5. [Git](https://git-scm.com/)
-  - Git was used for version control.
+    - Git was used for version control.
 6. [GitHub:](https://github.com/)
-  - GitHub is used to store the projects code after being pushed from Git.
+    - GitHub is used to store the projects code after being pushed from Git.
 7. [Paint.net:](https://www.getpaint.net/)
-  - Paint.net was used to edit the game graphics and background.
+    - Paint.net was used to edit the game graphics and background.
 8. [Balsamiq:](https://balsamiq.com/)
-  - Balsamiq was used to create the during the design process.
+    - Balsamiq was used to create the during the design process.
 9. [Visual Studio Code:](https://code.visualstudio.com/)
-  - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
+    - Visual Studio Code was used to write code, commit to Git and Push to GitHub.
 10. [EmailJS:](https://www.emailjs.com/)
-  - EmailJS was used to send emails to players with their results.
+    - EmailJS was used to send emails to players with their results.
 
 ## Testing
 
@@ -161,47 +162,47 @@ The deployed site was tested with Lighthouse for performance evaluation and with
 
 ### Testing User stories from User Experience (UX) Section
 
-#### First Time Visitor Goals
+- #### First Time Visitor Goals
 
-1. As a First Time Visitor, I want to learn how to play quickly.
-  * Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
-  * The game starts easily and become more challenging after the first level.
+  1. As a First Time Visitor, I want to learn how to play quickly.
+    1. Upon entering the site, users are asked to press the camera image in the title screen and read the instructions.
+    2. The game starts easily and become more challenging after the first level.
 
-2. As a First Time Visitor, I want to understand how long the game is.
-  * In the instruction pane, it is clear that the game has six levels in total.
-  * In the top part, there is an intuitive progress bar that indicates the current level.
-  * In the mobile version, the progress bar is replaced with a paragraph stating the current level and the total number of levels.
+  2. As a First Time Visitor, I want to understand how long the game is.
+    1. In the instruction pane, it is clear that the game has six levels in total.
+    2. In the top part, there is an intuitive progress bar that indicates the current level.
+    3. In the mobile version, the progress bar is replaced with a paragraph stating the current level and the total number of levels.
 
-3. As a First Time Visitor, I want to try to turn on the music.
-  * In the lower part, there is the audio button to toggle music on/off.
-  * The user can switch the music on/off anytime during the game or on the title screen.
+  3. As a First Time Visitor, I want to try to turn on the music.
+    1. In the lower part, there is the audio button to toggle music on/off.
+    2. The user can switch the music on/off anytime during the game or on the title screen.
 
-#### Returning Visitor Goals
+- #### Returning Visitor Goals
 
-1. As a Returning Visitor, I want to improve my score.
-  * When the user makes a mistake or beat level six the game is over and show the user his score from 0 to 100%.
-  * The user can play again to make a better score.
-  * If the score is less than 30%, the user will get a bronze cup, more than 30% is a silver cup, and 100% is a gold cup.
+  1. As a Returning Visitor, I want to improve my score.
+    1. When the user makes a mistake or beat level six the game is over and show the user his score from 0 to 100%.
+    2. The user can play again to make a better score.
+    3. If the score is less than 30%, the user will get a bronze cup, more than 30% is a silver cup, and 100% is a gold cup.
 
-2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
-  * At the end of the game, the user can insert an email address in a form to automatically send an email stating his result.
-  * The user can insert the proper email address to save his result or another to share with other people.
+  2. As a Returning Visitor, I want to send my results via mail or send to friends to show them.
+    1. At the end of the game, the user can insert an email address in a form to automatically send an email stating his result.
+    2. The user can insert the proper email address to save his result or another to share with other people.
 
-3. As a Returning Visitor, I want to find community links.
-  * At the bottom of the screen, there are the community links to visit the social pages easily.
+  3. As a Returning Visitor, I want to find community links.
+    1. At the bottom of the screen, there are the community links to visit the social pages easily.
 
-#### Frequent User Goals
+- #### Frequent User Goals
 
-1. As a Frequent User, I want to periodically test my memory.
-  * The user can test his memory periodically and see if there are improvements over time.
+  1. As a Frequent User, I want to periodically test my memory.
+    1. The user can test his memory periodically and see if there are improvements over time.
 
-2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
-  * The game provides a variety of different pictures of real-world landmark.
-  * The user can be inspired by the different places and choose one of those for the next trip.
+  2. As a Frequent User, I want to be inspired by the setting and choose a location for my next trip.
+    1. The game provides a variety of different pictures of real-world landmark.
+    2. The user can be inspired by the different places and choose one of those for the next trip.
 
-3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
-  * The user can share the website with friends to challenge from a distance and see who is better.
-  * The user can play with friends also with just one computer in the same place. There's no need to be in different places.
+  3. As a Frequent User, I want to challenge friends to see who has a better visual memory.
+    1. The user can share the website with friends to challenge from a distance and see who is better.
+    2. The user can play with friends also with just one computer in the same place. There's no need to be in different places.
 
 ### Further Testing
 
